@@ -114,25 +114,46 @@ function applyLanguage() {
     document.documentElement.lang = state.currentLang;
     document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
 
-    // Update language button
-    elements.langBtn.querySelector('.lang-text').textContent =
-        state.currentLang === 'en' ? 'EN' : 'AR';
+    // Update language switch state
+    const langSwitch = document.querySelector('.lang-switch');
+    if (langSwitch) {
+        if (isRTL) {
+            langSwitch.classList.add('switching');
+        } else {
+            langSwitch.classList.remove('switching');
+        }
+    }
 }
 
 function toggleLanguage() {
-    state.currentLang = state.currentLang === 'en' ? 'ar' : 'en';
-    applyLanguage();
-    updateTranslations();
-    saveState();
+    const langSwitch = document.querySelector('.lang-switch');
+    const newLang = state.currentLang === 'en' ? 'ar' : 'en';
 
-    // Re-render current screen content
-    if (state.currentRestaurant) {
-        renderCategories();
-        renderMenuItems();
+    // Add switching class for animation
+    if (langSwitch) {
+        if (newLang === 'ar') {
+            langSwitch.classList.add('switching');
+        } else {
+            langSwitch.classList.remove('switching');
+        }
     }
-    if (elements.cartScreen.classList.contains('active')) {
-        renderCartItems();
-    }
+
+    // Small delay to show animation before applying changes
+    setTimeout(() => {
+        state.currentLang = newLang;
+        applyLanguage();
+        updateTranslations();
+        saveState();
+
+        // Re-render current screen content
+        if (state.currentRestaurant) {
+            renderCategories();
+            renderMenuItems();
+        }
+        if (elements.cartScreen.classList.contains('active')) {
+            renderCartItems();
+        }
+    }, 150);
 }
 
 function updateTranslations() {
@@ -545,11 +566,11 @@ function setupEventListeners() {
     // Language toggle
     elements.langBtn.addEventListener('click', toggleLanguage);
 
-    // Restaurant selection (welcome tap area)
-    const welcomeTapArea = document.querySelector('.welcome-tap-area');
-    if (welcomeTapArea) {
-        welcomeTapArea.addEventListener('click', () => {
-            selectRestaurant(welcomeTapArea.dataset.restaurant);
+    // View menu button
+    const viewMenuBtn = document.getElementById('view-menu-btn');
+    if (viewMenuBtn) {
+        viewMenuBtn.addEventListener('click', () => {
+            selectRestaurant(viewMenuBtn.dataset.restaurant);
         });
     }
 

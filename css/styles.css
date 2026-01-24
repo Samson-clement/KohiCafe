@@ -146,106 +146,153 @@ img {
     position: absolute;
     inset: 0;
     background-color: var(--bg-main);
-    background-image:
-        radial-gradient(ellipse at 20% 30%, rgba(139, 115, 85, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 70%, rgba(107, 83, 68, 0.06) 0%, transparent 50%);
+    background-image: url('../images/kohiBG.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: -2;
 }
 
 .welcome-content {
+    position: relative;
     flex: 1;
     display: flex;
     flex-direction: column;
     padding: var(--spacing-lg);
-    padding-top: env(safe-area-inset-top, var(--spacing-lg));
+    padding-top: calc(env(safe-area-inset-top, 0px) + 60px);
     padding-bottom: env(safe-area-inset-bottom, var(--spacing-lg));
 }
 
 /* Language Toggle */
 .language-toggle {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: var(--spacing-lg);
+    position: absolute;
+    top: calc(env(safe-area-inset-top, 0px) + var(--spacing-md));
+    right: var(--spacing-md);
+    z-index: 10;
 }
 
 [dir="rtl"] .language-toggle {
-    justify-content: flex-start;
+    right: auto;
+    left: var(--spacing-md);
 }
 
-.lang-button {
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-full);
+.lang-switch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 36px;
     background: var(--white);
-    box-shadow: 0 2px 8px rgba(92, 74, 61, 0.1);
+    border-radius: var(--radius-full);
+    box-shadow: 0 2px 12px rgba(92, 74, 61, 0.15);
     border: 1px solid var(--glass-border);
+    cursor: pointer;
+    overflow: hidden;
+    transition: box-shadow var(--transition-fast);
+}
+
+.lang-switch:hover {
+    box-shadow: 0 4px 16px rgba(92, 74, 61, 0.2);
+}
+
+.lang-switch:active {
+    transform: scale(0.98);
+}
+
+.lang-option {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 13px;
     font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    color: var(--text-primary);
-    transition: transform var(--transition-fast), background var(--transition-fast);
+    color: var(--text-secondary);
+    z-index: 2;
+    transition: color var(--transition-fast);
+    user-select: none;
 }
 
-.lang-button:hover {
-    background: var(--kohi-cream-dark);
+.lang-option.lang-en {
+    color: var(--white);
 }
 
-.lang-button:active {
-    transform: scale(0.95);
+.lang-option.lang-ar {
+    font-family: var(--font-arabic);
+    font-size: 15px;
 }
 
-/* Welcome Tap Area */
-.welcome-tap-area {
+.lang-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: calc(50% - 3px);
+    height: calc(100% - 6px);
+    background: var(--current-primary);
+    border-radius: var(--radius-full);
+    transition: transform var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+/* Arabic mode - slider moves right */
+[dir="rtl"] .lang-slider {
+    left: auto;
+    right: 3px;
+    transform: translateX(0);
+}
+
+[dir="rtl"] .lang-option.lang-en {
+    color: var(--text-secondary);
+}
+
+[dir="rtl"] .lang-option.lang-ar {
+    color: var(--white);
+}
+
+/* LTR mode adjustments */
+[dir="ltr"] .lang-slider {
+    transform: translateX(0);
+}
+
+/* When switching to Arabic in LTR before page reloads */
+.lang-switch.switching .lang-slider {
+    transform: translateX(calc(100% + 3px));
+}
+
+.lang-switch.switching .lang-option.lang-en {
+    color: var(--text-secondary);
+}
+
+.lang-switch.switching .lang-option.lang-ar {
+    color: var(--white);
+}
+
+/* Welcome Center */
+.welcome-center {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    cursor: pointer;
-    transition: transform var(--transition-fast);
-    padding: var(--spacing-xl);
+    gap: var(--spacing-lg);
 }
 
-.welcome-tap-area:active {
-    transform: scale(0.98);
-}
-
-.welcome-logo-container {
-    width: 120px;
-    height: 120px;
-    margin-bottom: var(--spacing-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.welcome-logo {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 12px rgba(92, 74, 61, 0.15));
-}
-
-.welcome-brand {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 12vw, 5rem);
+.welcome-text {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(3rem, 10vw, 5rem);
     font-weight: 600;
-    color: var(--text-primary);
-    letter-spacing: -1px;
-    margin-bottom: var(--spacing-xs);
+    color: var(--kohi-brown-dark);
+    margin: 0;
+    clip-path: inset(0 100% 0 0);
+    animation: typeWrite 1.2s ease-out forwards;
 }
 
-.welcome-tagline {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    font-weight: 300;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: var(--spacing-2xl);
+@keyframes typeWrite {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
 }
 
 .welcome-cta {
@@ -259,12 +306,31 @@ img {
     font-size: 1rem;
     font-weight: 500;
     box-shadow: 0 4px 20px rgba(92, 74, 61, 0.25);
+    cursor: pointer;
+    border: none;
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 1s forwards;
 }
 
-.welcome-tap-area:hover .welcome-cta {
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcome-cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 24px rgba(92, 74, 61, 0.3);
+}
+
+.welcome-cta:active {
+    transform: translateY(0) scale(0.98);
 }
 
 .cta-text {
@@ -277,7 +343,7 @@ img {
     transition: transform var(--transition-fast);
 }
 
-.welcome-tap-area:hover .cta-arrow {
+.welcome-cta:hover .cta-arrow {
     transform: translateX(4px);
 }
 
@@ -285,7 +351,7 @@ img {
     transform: scaleX(-1);
 }
 
-[dir="rtl"] .welcome-tap-area:hover .cta-arrow {
+[dir="rtl"] .welcome-cta:hover .cta-arrow {
     transform: scaleX(-1) translateX(4px);
 }
 
@@ -294,6 +360,8 @@ img {
     display: flex;
     justify-content: center;
     padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-xl);
+    margin-bottom: env(safe-area-inset-bottom, var(--spacing-md));
 }
 
 .location-badge {

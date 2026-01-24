@@ -9,7 +9,7 @@
     <title>Kohi Coffee Bar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -18,24 +18,22 @@
         <div class="welcome-background"></div>
         <div class="welcome-content">
             <div class="language-toggle">
-                <button id="lang-btn" class="lang-button">
-                    <span class="lang-text">EN</span>
-                </button>
+                <div class="lang-switch" id="lang-btn">
+                    <span class="lang-option lang-en">EN</span>
+                    <span class="lang-option lang-ar">ع</span>
+                    <span class="lang-slider"></span>
+                </div>
             </div>
 
-            <button class="welcome-tap-area" data-restaurant="kohi">
-                <div class="welcome-logo-container">
-                    <img src="images/kohilogo.png" alt="Kohi Coffee Bar" class="welcome-logo">
-                </div>
-                <h1 class="welcome-brand">kohi.</h1>
-                <p class="welcome-tagline">Coffee Bar</p>
-                <div class="welcome-cta">
+            <div class="welcome-center">
+                <h1 class="welcome-text" data-translate="welcome">Welcome</h1>
+                <button class="welcome-cta" id="view-menu-btn" data-restaurant="kohi">
                     <span class="cta-text" data-translate="tap_to_view">Tap to view menu</span>
                     <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                     </svg>
-                </div>
-            </button>
+                </button>
+            </div>
 
             <div class="welcome-footer">
                 <div class="location-badge">
