@@ -1,0 +1,141 @@
+/**
+ * KOHI - Translations Module
+ * Supports English and Arabic with RTL
+ */
+
+const translations = {
+    en: {
+        // Welcome Screen
+        welcome: "Welcome",
+        select_restaurant: "Select a restaurant",
+        kohi: "Kohi",
+
+        // Menu Screen
+        menu: "Menu",
+        all: "All",
+        categories: "Categories",
+
+        // Categories - Kohi
+        best_sellers: "Best Sellers",
+        hot_coffee: "Hot Coffee",
+        cold_coffee: "Cold Coffee",
+        iced_teas: "Iced Teas & Refreshers",
+        breakfast: "Breakfast & Light Bites",
+        desserts: "Desserts & Sweets",
+
+        // Cart & Order
+        cart: "Cart",
+        add_to_order: "Add to Order",
+        added_to_order: "Added to order",
+        quantity: "Quantity",
+        total: "Total",
+        checkout: "Checkout",
+        back: "Back",
+        view_order: "View Order",
+        your_order: "Your Order",
+        clear: "Clear",
+        item: "item",
+        items: "items",
+        confirm_order: "Confirm Order",
+        clear_cart: "Clear Cart",
+        empty_cart: "Your cart is empty",
+        order_total: "Order Total",
+
+        // Checkout
+        thank_you: "Thank You!",
+        checkout_message: "Your order has been received",
+        checkout_instruction: "Please inform your waiter"
+    },
+
+    ar: {
+        // Welcome Screen
+        welcome: "أهلاً وسهلاً",
+        select_restaurant: "اختر المطعم",
+        kohi: "كوهي",
+
+        // Menu Screen
+        menu: "القائمة",
+        all: "الكل",
+        categories: "الفئات",
+
+        // Categories - Kohi
+        best_sellers: "الأكثر مبيعاً",
+        hot_coffee: "القهوة الساخنة",
+        cold_coffee: "القهوة الباردة",
+        iced_teas: "الشاي المثلج والمنعشات",
+        breakfast: "الإفطار والوجبات الخفيفة",
+        desserts: "الحلويات",
+
+        // Cart & Order
+        cart: "السلة",
+        add_to_order: "أضف للطلب",
+        added_to_order: "تمت الإضافة للطلب",
+        quantity: "الكمية",
+        total: "المجموع",
+        checkout: "إتمام الطلب",
+        back: "رجوع",
+        view_order: "عرض الطلب",
+        your_order: "طلبك",
+        clear: "مسح",
+        item: "عنصر",
+        items: "عناصر",
+        confirm_order: "تأكيد الطلب",
+        clear_cart: "مسح السلة",
+        empty_cart: "سلتك فارغة",
+        order_total: "إجمالي الطلب",
+
+        // Checkout
+        thank_you: "شكراً لك!",
+        checkout_message: "تم استلام طلبك",
+        checkout_instruction: "يرجى إبلاغ النادل"
+    }
+};
+
+// Arabic numerals mapping
+const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+
+/**
+ * Convert number to Arabic numerals
+ */
+function toArabicNumerals(num) {
+    return String(num).split('').map(digit => {
+        if (digit === '.') return '٫';
+        if (digit === ',') return '،';
+        const n = parseInt(digit);
+        return isNaN(n) ? digit : arabicNumerals[n];
+    }).join('');
+}
+
+/**
+ * Format price with currency
+ */
+function formatPrice(price, lang = 'en') {
+    const formattedPrice = price.toFixed(3);
+
+    if (lang === 'ar') {
+        return `${toArabicNumerals(formattedPrice)} د.ك`;
+    }
+    return `KWD ${formattedPrice}`;
+}
+
+/**
+ * Format number based on language
+ */
+function formatNumber(num, lang = 'en') {
+    if (lang === 'ar') {
+        return toArabicNumerals(num);
+    }
+    return String(num);
+}
+
+/**
+ * Get translation by key
+ */
+function t(key, lang = 'en') {
+    return translations[lang]?.[key] || translations.en[key] || key;
+}
+
+// Export for module usage
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { translations, t, formatPrice, formatNumber, toArabicNumerals };
+}

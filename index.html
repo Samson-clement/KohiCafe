@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#5c4a3d">
+    <title>Kohi Coffee Bar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="screen active">
+        <div class="welcome-background"></div>
+        <div class="welcome-overlay"></div>
+        <div class="welcome-content">
+            <div class="language-toggle">
+                <button id="lang-btn" class="lang-button">
+                    <span class="lang-text">EN</span>
+                </button>
+            </div>
+
+            <div class="welcome-header">
+                <h1 class="welcome-title" data-translate="welcome">Welcome</h1>
+                <p class="welcome-subtitle" data-translate="select_restaurant">Select a restaurant</p>
+                <div class="location-badge">
+                    <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Kuwait</span>
+                </div>
+            </div>
+
+            <div class="restaurant-cards">
+                <button class="restaurant-card kohi-card" data-restaurant="kohi">
+                    <div class="card-glass"></div>
+                    <img src="images/kohilogo.png" alt="Kohi" class="restaurant-logo">
+                    <span class="restaurant-name" data-translate="kohi">Kohi</span>
+                    <span class="restaurant-tagline">Coffee Bar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Screen -->
+    <div id="menu-screen" class="screen">
+        <div class="menu-background"></div>
+        <div class="menu-overlay"></div>
+
+        <header class="menu-header">
+            <button class="back-button" id="back-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <h1 class="menu-title" id="menu-title">Kohi</h1>
+            <button class="cart-header-btn" id="cart-header-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="cart-badge" id="cart-badge">0</span>
+            </button>
+        </header>
+
+        <div class="category-tabs" id="category-tabs">
+            <!-- Categories will be injected here -->
+        </div>
+
+        <main class="menu-content" id="menu-content">
+            <div class="menu-grid" id="menu-grid">
+                <!-- Menu items will be injected here -->
+            </div>
+        </main>
+
+        <div class="floating-cart" id="floating-cart">
+            <div class="cart-info">
+                <span class="cart-count" id="cart-count">0</span>
+                <span class="cart-label" data-translate="items">items</span>
+            </div>
+            <div class="cart-total" id="cart-total">KWD 0.000</div>
+            <button class="view-cart-btn" data-translate="view_order">View Order</button>
+        </div>
+    </div>
+
+    <!-- Cart Screen -->
+    <div id="cart-screen" class="screen">
+        <div class="cart-background"></div>
+        <div class="cart-overlay"></div>
+
+        <header class="cart-header">
+            <button class="back-button" id="cart-back-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <h1 class="cart-title" data-translate="your_order">Your Order</h1>
+            <button class="clear-cart-btn" id="clear-cart-btn" data-translate="clear">Clear</button>
+        </header>
+
+        <main class="cart-content" id="cart-content">
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be injected here -->
+            </div>
+
+            <div class="cart-empty" id="cart-empty">
+                <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <p data-translate="empty_cart">Your cart is empty</p>
+            </div>
+        </main>
+
+        <footer class="cart-footer" id="cart-footer">
+            <div class="total-section">
+                <span class="total-label" data-translate="order_total">Order Total</span>
+                <span class="total-amount" id="total-amount">KWD 0.000</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn" data-translate="checkout">Checkout</button>
+        </footer>
+    </div>
+
+    <!-- Item Detail Modal -->
+    <div id="item-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal-image-container">
+                <img id="modal-image" src="" alt="">
+                <div class="modal-price-badge" id="modal-price"></div>
+            </div>
+            <div class="modal-details">
+                <h2 class="modal-title" id="modal-title"></h2>
+                <p class="modal-description" id="modal-description"></p>
+                <button class="modal-add-btn" id="modal-add-btn" data-translate="add_to_order">Add to Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div id="thankyou-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="thankyou-content">
+            <div class="thankyou-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+            <h2 class="thankyou-title" data-translate="thank_you">Thank You!</h2>
+            <p class="thankyou-message" data-translate="checkout_message">Your order has been received</p>
+            <p class="thankyou-instruction" data-translate="checkout_instruction">Please inform your waiter</p>
+            <button class="thankyou-btn" id="thankyou-close-btn">OK</button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <span class="toast-message" data-translate="added_to_order">Added to order</span>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
