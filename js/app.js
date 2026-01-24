@@ -545,12 +545,13 @@ function setupEventListeners() {
     // Language toggle
     elements.langBtn.addEventListener('click', toggleLanguage);
 
-    // Restaurant selection
-    document.querySelectorAll('.restaurant-card').forEach(card => {
-        card.addEventListener('click', () => {
-            selectRestaurant(card.dataset.restaurant);
+    // Restaurant selection (welcome tap area)
+    const welcomeTapArea = document.querySelector('.welcome-tap-area');
+    if (welcomeTapArea) {
+        welcomeTapArea.addEventListener('click', () => {
+            selectRestaurant(welcomeTapArea.dataset.restaurant);
         });
-    });
+    }
 
     // Menu navigation
     elements.backBtn.addEventListener('click', goBack);

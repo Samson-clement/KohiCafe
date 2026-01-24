@@ -7,7 +7,7 @@ const translations = {
     en: {
         // Welcome Screen
         welcome: "Welcome",
-        select_restaurant: "Select a restaurant",
+        tap_to_view: "Tap to view menu",
         kohi: "Kohi",
 
         // Menu Screen
@@ -50,7 +50,7 @@ const translations = {
     ar: {
         // Welcome Screen
         welcome: "أهلاً وسهلاً",
-        select_restaurant: "اختر المطعم",
+        tap_to_view: "انقر لعرض القائمة",
         kohi: "كوهي",
 
         // Menu Screen
