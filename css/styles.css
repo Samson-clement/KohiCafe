@@ -808,8 +808,10 @@ img {
     position: absolute;
     inset: 0;
     background-color: var(--bg-main);
-    background-image:
-        radial-gradient(ellipse at 50% 30%, rgba(139, 115, 85, 0.06) 0%, transparent 50%);
+    background-image: url('../images/kohibg2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: -1;
 }
 
