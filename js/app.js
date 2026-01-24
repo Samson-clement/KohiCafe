@@ -127,6 +127,7 @@ function applyLanguage() {
 
 function toggleLanguage() {
     const langSwitch = document.querySelector('.lang-switch');
+    const welcomeText = document.querySelector('.welcome-text');
     const newLang = state.currentLang === 'en' ? 'ar' : 'en';
 
     // Add arabic class for animation
@@ -144,6 +145,18 @@ function toggleLanguage() {
         applyLanguage();
         updateTranslations();
         saveState();
+
+        // Restart welcome text animation
+        if (welcomeText) {
+            welcomeText.classList.add('animate');
+            // Force reflow
+            void welcomeText.offsetWidth;
+            welcomeText.classList.add('play');
+            // Clean up after animation
+            setTimeout(() => {
+                welcomeText.classList.remove('animate', 'play');
+            }, 1300);
+        }
 
         // Re-render current screen content
         if (state.currentRestaurant) {

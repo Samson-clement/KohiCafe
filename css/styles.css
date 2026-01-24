@@ -269,6 +269,20 @@ img {
     animation: typeWrite 1.2s ease-out forwards;
 }
 
+/* Arabic welcome text uses Arabic font */
+[lang="ar"] .welcome-text {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+}
+
+/* Animation restart class */
+.welcome-text.animate {
+    animation: none;
+}
+.welcome-text.animate.play {
+    animation: typeWrite 1.2s ease-out forwards;
+}
+
 @keyframes typeWrite {
     0% {
         clip-path: inset(0 100% 0 0);
