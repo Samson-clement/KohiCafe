@@ -110,17 +110,17 @@ function saveState() {
 // ==========================================
 
 function applyLanguage() {
-    const isRTL = state.currentLang === 'ar';
+    const isArabic = state.currentLang === 'ar';
     document.documentElement.lang = state.currentLang;
-    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+    document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
 
     // Update language switch state
     const langSwitch = document.querySelector('.lang-switch');
     if (langSwitch) {
-        if (isRTL) {
-            langSwitch.classList.add('switching');
+        if (isArabic) {
+            langSwitch.classList.add('arabic');
         } else {
-            langSwitch.classList.remove('switching');
+            langSwitch.classList.remove('arabic');
         }
     }
 }
@@ -129,12 +129,12 @@ function toggleLanguage() {
     const langSwitch = document.querySelector('.lang-switch');
     const newLang = state.currentLang === 'en' ? 'ar' : 'en';
 
-    // Add switching class for animation
+    // Add arabic class for animation
     if (langSwitch) {
         if (newLang === 'ar') {
-            langSwitch.classList.add('switching');
+            langSwitch.classList.add('arabic');
         } else {
-            langSwitch.classList.remove('switching');
+            langSwitch.classList.remove('arabic');
         }
     }
 

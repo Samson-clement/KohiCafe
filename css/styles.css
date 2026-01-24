@@ -189,6 +189,7 @@ img {
     cursor: pointer;
     overflow: hidden;
     transition: box-shadow var(--transition-fast);
+    direction: ltr;
 }
 
 .lang-switch:hover {
@@ -206,7 +207,7 @@ img {
     justify-content: center;
     font-size: 13px;
     font-weight: 600;
-    color: var(--text-secondary);
+    color: var(--kohi-brown);
     z-index: 2;
     transition: color var(--transition-fast);
     user-select: none;
@@ -219,6 +220,7 @@ img {
 .lang-option.lang-ar {
     font-family: var(--font-arabic);
     font-size: 15px;
+    color: var(--kohi-brown);
 }
 
 .lang-slider {
@@ -231,38 +233,19 @@ img {
     border-radius: var(--radius-full);
     transition: transform var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
-}
-
-/* Arabic mode - slider moves right */
-[dir="rtl"] .lang-slider {
-    left: auto;
-    right: 3px;
     transform: translateX(0);
 }
 
-[dir="rtl"] .lang-option.lang-en {
-    color: var(--text-secondary);
-}
-
-[dir="rtl"] .lang-option.lang-ar {
-    color: var(--white);
-}
-
-/* LTR mode adjustments */
-[dir="ltr"] .lang-slider {
-    transform: translateX(0);
-}
-
-/* When switching to Arabic in LTR before page reloads */
-.lang-switch.switching .lang-slider {
+/* When Arabic is selected - slider moves right */
+.lang-switch.arabic .lang-slider {
     transform: translateX(calc(100% + 3px));
 }
 
-.lang-switch.switching .lang-option.lang-en {
-    color: var(--text-secondary);
+.lang-switch.arabic .lang-option.lang-en {
+    color: var(--kohi-brown);
 }
 
-.lang-switch.switching .lang-option.lang-ar {
+.lang-switch.arabic .lang-option.lang-ar {
     color: var(--white);
 }
 
