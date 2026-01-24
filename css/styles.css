@@ -1117,6 +1117,7 @@ img {
     border-radius: var(--radius-md);
     font-size: 1rem;
     font-weight: 700;
+    color: var(--white);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 

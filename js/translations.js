@@ -17,11 +17,14 @@ const translations = {
 
         // Categories - Kohi
         best_sellers: "Best Sellers",
-        hot_coffee: "Hot Coffee",
-        cold_coffee: "Cold Coffee",
-        iced_teas: "Iced Teas & Refreshers",
-        breakfast: "Breakfast & Light Bites",
-        desserts: "Desserts & Sweets",
+        boba_drinks: "Boba Drinks",
+        desserts: "Desserts",
+        sandwiches: "Sandwiches",
+        iced_drinks: "Iced Drinks",
+        hot_drinks: "Hot Drinks",
+        brewed_coffee: "Brewed Coffee",
+        mojito_iced_tea: "Mojito & Iced Tea",
+        water: "Water",
 
         // Cart & Order
         cart: "Cart",
@@ -68,11 +71,14 @@ const translations = {
 
         // Categories - Kohi
         best_sellers: "الأكثر مبيعاً",
-        hot_coffee: "القهوة الساخنة",
-        cold_coffee: "القهوة الباردة",
-        iced_teas: "الشاي المثلج والمنعشات",
-        breakfast: "الإفطار والوجبات الخفيفة",
+        boba_drinks: "مشروبات البوبا",
         desserts: "الحلويات",
+        sandwiches: "السندويشات",
+        iced_drinks: "المشروبات المثلجة",
+        hot_drinks: "المشروبات الساخنة",
+        brewed_coffee: "القهوة المخمرة",
+        mojito_iced_tea: "موهيتو وشاي مثلج",
+        water: "مياه",
 
         // Cart & Order
         cart: "السلة",

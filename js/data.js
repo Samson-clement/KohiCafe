@@ -16,7 +16,6 @@ const menuData = {
     },
 
     categories: {
-        // Kohi Categories
         best_sellers: {
             id: 'best_sellers',
             name: 'Best Sellers',
@@ -24,77 +23,470 @@ const menuData = {
             restaurant: 'kohi',
             translationKey: 'best_sellers'
         },
-        hot_coffee: {
-            id: 'hot_coffee',
-            name: 'Hot Coffee',
-            nameAr: 'القهوة الساخنة',
+        boba_drinks: {
+            id: 'boba_drinks',
+            name: 'Boba Drinks',
+            nameAr: 'مشروبات البوبا',
             restaurant: 'kohi',
-            translationKey: 'hot_coffee'
-        },
-        cold_coffee: {
-            id: 'cold_coffee',
-            name: 'Cold Coffee',
-            nameAr: 'القهوة الباردة',
-            restaurant: 'kohi',
-            translationKey: 'cold_coffee'
-        },
-        iced_teas: {
-            id: 'iced_teas',
-            name: 'Iced Teas & Refreshers',
-            nameAr: 'الشاي المثلج والمنعشات',
-            restaurant: 'kohi',
-            translationKey: 'iced_teas'
-        },
-        breakfast: {
-            id: 'breakfast',
-            name: 'Breakfast & Light Bites',
-            nameAr: 'الإفطار والوجبات الخفيفة',
-            restaurant: 'kohi',
-            translationKey: 'breakfast'
+            translationKey: 'boba_drinks'
         },
         desserts: {
             id: 'desserts',
-            name: 'Desserts & Sweets',
+            name: 'Desserts',
             nameAr: 'الحلويات',
             restaurant: 'kohi',
             translationKey: 'desserts'
+        },
+        sandwiches: {
+            id: 'sandwiches',
+            name: 'Sandwiches',
+            nameAr: 'السندويشات',
+            restaurant: 'kohi',
+            translationKey: 'sandwiches'
+        },
+        iced_drinks: {
+            id: 'iced_drinks',
+            name: 'Iced Drinks',
+            nameAr: 'المشروبات المثلجة',
+            restaurant: 'kohi',
+            translationKey: 'iced_drinks'
+        },
+        hot_drinks: {
+            id: 'hot_drinks',
+            name: 'Hot Drinks',
+            nameAr: 'المشروبات الساخنة',
+            restaurant: 'kohi',
+            translationKey: 'hot_drinks'
+        },
+        brewed_coffee: {
+            id: 'brewed_coffee',
+            name: 'Brewed Coffee',
+            nameAr: 'القهوة المخمرة',
+            restaurant: 'kohi',
+            translationKey: 'brewed_coffee'
+        },
+        mojito_iced_tea: {
+            id: 'mojito_iced_tea',
+            name: 'Mojito & Iced Tea',
+            nameAr: 'موهيتو وشاي مثلج',
+            restaurant: 'kohi',
+            translationKey: 'mojito_iced_tea'
+        },
+        water: {
+            id: 'water',
+            name: 'Water',
+            nameAr: 'مياه',
+            restaurant: 'kohi',
+            translationKey: 'water'
         }
     },
 
     items: [
         // ==========================================
-        // KOHI - Best Sellers
+        // BEST SELLERS
         // ==========================================
+        {
+            id: 'matcha_boba_best',
+            name: 'Matcha Boba',
+            nameAr: 'ماتشا بوبا',
+            description: 'Black Tapioca, Matcha, Sweetened Milk And Cream',
+            descriptionAr: 'تابيوكا سوداء، ماتشا، حليب محلى وكريمة',
+            price: 2.250,
+            category: 'best_sellers',
+            restaurant: 'kohi',
+            image: 'images/matcha-boba.png'
+        },
+        {
+            id: 'boba_japanese_pancake_best',
+            name: 'Boba Japanese Pancake',
+            nameAr: 'بان كيك ياباني بالبوبا',
+            description: 'Japanese Soufflé Pancake with Tapioca topping',
+            descriptionAr: 'بان كيك سوفليه ياباني مع تابيوكا',
+            price: 2.500,
+            category: 'best_sellers',
+            restaurant: 'kohi',
+            image: 'images/boba-pancake.png'
+        },
+        {
+            id: 'lotus_cheesecake_best',
+            name: 'Lotus Cheesecake',
+            nameAr: 'تشيز كيك اللوتس',
+            description: 'Velvety cream cheese filling infused with lotus biscoff cookies on a crunchy cookie crust',
+            descriptionAr: 'حشوة كريمية ناعمة بنكهة بسكويت اللوتس على قاعدة مقرمشة',
+            price: 2.000,
+            category: 'best_sellers',
+            restaurant: 'kohi',
+            image: 'images/lotus-cheesecake.png'
+        },
+        {
+            id: 'strawberry_mojito_best',
+            name: 'Strawberry Mojito',
+            nameAr: 'موهيتو فراولة',
+            description: 'Strawberry Syrup, Lemon, Mint And Sprite',
+            descriptionAr: 'شراب الفراولة، ليمون، نعناع وسبرايت',
+            price: 1.750,
+            category: 'best_sellers',
+            restaurant: 'kohi',
+            image: 'images/strawberry-mojito.png'
+        },
+        {
+            id: 'chocolate_japanese_pancake_best',
+            name: 'Chocolate Japanese Pancake',
+            nameAr: 'بان كيك ياباني بالشوكولاتة',
+            description: 'Fluffy Japanese pancake topped with Belgium chocolate and mixed berries',
+            descriptionAr: 'بان كيك ياباني هش مع شوكولاتة بلجيكية وتوت مشكل',
+            price: 2.500,
+            category: 'best_sellers',
+            restaurant: 'kohi',
+            image: 'images/chocolate-pancake.png'
+        },
+        {
+            id: 'japanese_pancake_best',
+            name: 'Japanese Pancake',
+            nameAr: 'بان كيك ياباني',
+            description: 'Soft Japanese souffle pancake with butter and maple syrup',
+            descriptionAr: 'بان كيك سوفليه ياباني طري مع زبدة وشراب القيقب',
+            price: 2.250,
+            category: 'best_sellers',
+            restaurant: 'kohi',
+            image: 'images/japanese-pancake.png'
+        },
+
+        // ==========================================
+        // BOBA DRINKS
+        // ==========================================
+        {
+            id: 'kohi_bubble_tea',
+            name: 'Kohi Bubble Tea',
+            nameAr: 'كوهي بابل تي',
+            description: 'Black Tapioca, Caramel, Milk Tea And Cream',
+            descriptionAr: 'تابيوكا سوداء، كراميل، شاي بالحليب وكريمة',
+            price: 2.000,
+            category: 'boba_drinks',
+            restaurant: 'kohi',
+            image: 'images/kohi-bubble-tea.png'
+        },
+        {
+            id: 'brown_sugar_boba',
+            name: 'Brown Sugar Boba',
+            nameAr: 'بوبا السكر البني',
+            description: 'Black tapioca, brown sugar syrup and cream',
+            descriptionAr: 'تابيوكا سوداء، شراب السكر البني وكريمة',
+            price: 2.000,
+            category: 'boba_drinks',
+            restaurant: 'kohi',
+            image: 'images/brown-sugar-boba.png'
+        },
+        {
+            id: 'espresso_boba',
+            name: 'Espresso Boba',
+            nameAr: 'إسبريسو بوبا',
+            description: 'Black Tapioca, Espresso Shot, Brown Sugar Syrup And Cream',
+            descriptionAr: 'تابيوكا سوداء، شوت إسبريسو، شراب السكر البني وكريمة',
+            price: 2.250,
+            category: 'boba_drinks',
+            restaurant: 'kohi',
+            image: 'images/espresso-boba.png'
+        },
+        {
+            id: 'matcha_boba',
+            name: 'Matcha Boba',
+            nameAr: 'ماتشا بوبا',
+            description: 'Black Tapioca, Matcha, Sweetened Milk And Cream',
+            descriptionAr: 'تابيوكا سوداء، ماتشا، حليب محلى وكريمة',
+            price: 2.250,
+            category: 'boba_drinks',
+            restaurant: 'kohi',
+            image: 'images/matcha-boba.png'
+        },
+
+        // ==========================================
+        // DESSERTS
+        // ==========================================
+        {
+            id: 'japanese_pancake',
+            name: 'Japanese Pancake',
+            nameAr: 'بان كيك ياباني',
+            description: 'Soft souffle Japanese pancake with butter and maple syrup',
+            descriptionAr: 'بان كيك سوفليه ياباني طري مع زبدة وشراب القيقب',
+            price: 2.250,
+            category: 'desserts',
+            restaurant: 'kohi',
+            image: 'images/japanese-pancake.png'
+        },
+        {
+            id: 'chocolate_japanese_pancake',
+            name: 'Chocolate Japanese Pancake',
+            nameAr: 'بان كيك ياباني بالشوكولاتة',
+            description: 'Fluffy Japanese pancake topped with Belgium chocolate and mixed berries',
+            descriptionAr: 'بان كيك ياباني هش مع شوكولاتة بلجيكية وتوت مشكل',
+            price: 2.500,
+            category: 'desserts',
+            restaurant: 'kohi',
+            image: 'images/chocolate-pancake.png'
+        },
+        {
+            id: 'peanut_butter_bar',
+            name: 'Peanut Butter Bar',
+            nameAr: 'بار زبدة الفول السوداني',
+            description: 'Peanut butter bar stuffed with Belgian milk chocolate',
+            descriptionAr: 'بار زبدة الفول السوداني محشو بشوكولاتة الحليب البلجيكية',
+            price: 0.500,
+            category: 'desserts',
+            restaurant: 'kohi',
+            image: 'images/peanut-butter-bar.png'
+        },
+        {
+            id: 'boba_japanese_pancake',
+            name: 'Boba Japanese Pancake',
+            nameAr: 'بان كيك ياباني بالبوبا',
+            description: 'Japanese Soufflé Pancake with Tapioca topping',
+            descriptionAr: 'بان كيك سوفليه ياباني مع تابيوكا',
+            price: 2.500,
+            category: 'desserts',
+            restaurant: 'kohi',
+            image: 'images/boba-pancake.png'
+        },
+        {
+            id: 'pistachio_matcha_pancake',
+            name: 'Japanese Pistachio & Matcha Pancake',
+            nameAr: 'بان كيك ياباني بالفستق والماتشا',
+            description: 'Japanese souffle pancakes with matcha and pistachios',
+            descriptionAr: 'بان كيك سوفليه ياباني مع الماتشا والفستق',
+            price: 2.500,
+            category: 'desserts',
+            restaurant: 'kohi',
+            image: 'images/pistachio-matcha-pancake.png'
+        },
+        {
+            id: 'kinder_cookies',
+            name: 'Kinder Cookies',
+            nameAr: 'كوكيز كيندر',
+            description: 'Cookie infused with Kinder chocolate',
+            descriptionAr: 'كوكيز بشوكولاتة كيندر',
+            price: 1.000,
+            category: 'desserts',
+            restaurant: 'kohi',
+            image: 'images/kinder-cookies.png'
+        },
+        {
+            id: 'japanese_cheesecake',
+            name: 'Japanese Cheesecake',
+            nameAr: 'تشيز كيك ياباني',
+            description: 'Soft Japanese style cheesecake',
+            descriptionAr: 'تشيز كيك ياباني طري',
+            price: 2.000,
+            category: 'desserts',
+            restaurant: 'kohi',
+            image: 'images/japanese-cheesecake.png'
+        },
+        {
+            id: 'brownie',
+            name: 'Brownie',
+            nameAr: 'براوني',
+            description: 'Chocolate chip & nut brownie, good source of antioxidants',
+            descriptionAr: 'براوني برقائق الشوكولاتة والمكسرات',
+            price: 0.400,
+            category: 'desserts',
+            restaurant: 'kohi',
+            image: 'images/brownie.png'
+        },
+        {
+            id: 'protein_balls',
+            name: 'Protein Balls',
+            nameAr: 'كرات البروتين',
+            description: 'Healthy protein balls',
+            descriptionAr: 'كرات بروتين صحية',
+            price: 1.000,
+            category: 'desserts',
+            restaurant: 'kohi',
+            image: 'images/protein-balls.png'
+        },
+        {
+            id: 'lotus_cheesecake',
+            name: 'Lotus Cheesecake',
+            nameAr: 'تشيز كيك اللوتس',
+            description: 'Velvety cream cheese filling infused with lotus biscoff cookies on a crispy crust',
+            descriptionAr: 'حشوة كريمية ناعمة بنكهة بسكويت اللوتس على قاعدة مقرمشة',
+            price: 2.000,
+            category: 'desserts',
+            restaurant: 'kohi',
+            image: 'images/lotus-cheesecake.png'
+        },
+
+        // ==========================================
+        // SANDWICHES
+        // ==========================================
+        {
+            id: 'turkey_sandwich',
+            name: 'Turkey Sandwich',
+            nameAr: 'سندويش ديك رومي',
+            description: 'Sandwich with turkey',
+            descriptionAr: 'سندويش بالديك الرومي',
+            price: 2.000,
+            category: 'sandwiches',
+            restaurant: 'kohi',
+            image: 'images/turkey-sandwich.png'
+        },
+
+        // ==========================================
+        // ICED DRINKS
+        // ==========================================
+        {
+            id: 'iced_spanish_latte',
+            name: 'Iced Spanish Latte',
+            nameAr: 'سبانش لاتيه مثلج',
+            description: 'Sweetened milk and espresso shot over ice',
+            descriptionAr: 'حليب محلى وشوت إسبريسو مع الثلج',
+            price: 2.000,
+            category: 'iced_drinks',
+            restaurant: 'kohi',
+            image: 'images/iced-spanish-latte.png'
+        },
+        {
+            id: 'iced_kohi_latte',
+            name: 'Iced Kohi Latte',
+            nameAr: 'كوهي لاتيه مثلج',
+            description: 'Signature Kohi latte over ice',
+            descriptionAr: 'لاتيه كوهي المميز مع الثلج',
+            price: 2.500,
+            category: 'iced_drinks',
+            restaurant: 'kohi',
+            image: 'images/iced-kohi-latte.png'
+        },
+        {
+            id: 'iced_americano',
+            name: 'Iced Americano',
+            nameAr: 'أمريكانو مثلج',
+            description: 'Espresso Shot and Filtered Water',
+            descriptionAr: 'شوت إسبريسو وماء مفلتر',
+            price: 1.500,
+            category: 'iced_drinks',
+            restaurant: 'kohi',
+            image: 'images/iced-americano.png'
+        },
+        {
+            id: 'iced_latte',
+            name: 'Iced Latte',
+            nameAr: 'لاتيه مثلج',
+            description: 'Espresso Shot and Milk',
+            descriptionAr: 'شوت إسبريسو وحليب',
+            price: 1.750,
+            category: 'iced_drinks',
+            restaurant: 'kohi',
+            image: 'images/iced-latte.png'
+        },
+        {
+            id: 'iced_matcha_latte',
+            name: 'Iced Matcha Latte',
+            nameAr: 'ماتشا لاتيه مثلج',
+            description: 'Matcha and Milk',
+            descriptionAr: 'ماتشا وحليب',
+            price: 2.000,
+            category: 'iced_drinks',
+            restaurant: 'kohi',
+            image: 'images/iced-matcha-latte.png'
+        },
+        {
+            id: 'vanilla_ice_shaken',
+            name: 'Vanilla Ice Shaken',
+            nameAr: 'فانيلا آيس شيكن',
+            description: 'Espresso Shot, Vanilla, Ice (all shaken)',
+            descriptionAr: 'شوت إسبريسو، فانيلا، ثلج (مخفوق)',
+            price: 2.000,
+            category: 'iced_drinks',
+            restaurant: 'kohi',
+            image: 'images/vanilla-ice-shaken.png'
+        },
+        {
+            id: 'caramel_ice_shaken',
+            name: 'Caramel Ice Shaken',
+            nameAr: 'كراميل آيس شيكن',
+            description: 'Espresso Shot, Caramel, Ice (all shaken)',
+            descriptionAr: 'شوت إسبريسو، كراميل، ثلج (مخفوق)',
+            price: 2.000,
+            category: 'iced_drinks',
+            restaurant: 'kohi',
+            image: 'images/caramel-ice-shaken.png'
+        },
+        {
+            id: 'iced_white_mocha',
+            name: 'Iced White Mocha',
+            nameAr: 'وايت موكا مثلج',
+            description: 'Espresso Shot and White Mocha Syrup',
+            descriptionAr: 'شوت إسبريسو وشراب الوايت موكا',
+            price: 2.000,
+            category: 'iced_drinks',
+            restaurant: 'kohi',
+            image: 'images/iced-white-mocha.png'
+        },
+        {
+            id: 'iced_mocha',
+            name: 'Iced Mocha',
+            nameAr: 'موكا مثلج',
+            description: 'Espresso Shot and Mocha',
+            descriptionAr: 'شوت إسبريسو وموكا',
+            price: 2.000,
+            category: 'iced_drinks',
+            restaurant: 'kohi',
+            image: 'images/iced-mocha.png'
+        },
+        {
+            id: 'iced_salted_caramel',
+            name: 'Iced Salted Caramel Latte',
+            nameAr: 'لاتيه كراميل مملح مثلج',
+            description: 'Espresso Shot and Salted Caramel',
+            descriptionAr: 'شوت إسبريسو وكراميل مملح',
+            price: 2.000,
+            category: 'iced_drinks',
+            restaurant: 'kohi',
+            image: 'images/iced-salted-caramel.png'
+        },
+        {
+            id: 'iced_chocolate',
+            name: 'Iced Chocolate',
+            nameAr: 'شوكولاتة مثلجة',
+            description: 'Chocolate and Milk',
+            descriptionAr: 'شوكولاتة وحليب',
+            price: 1.500,
+            category: 'iced_drinks',
+            restaurant: 'kohi',
+            image: 'images/iced-chocolate.png'
+        },
+
+        // ==========================================
+        // HOT DRINKS
+        // ==========================================
+        {
+            id: 'espresso',
+            name: 'Espresso',
+            nameAr: 'إسبريسو',
+            description: 'Perfectly extracted espresso shot',
+            descriptionAr: 'شوت إسبريسو مستخلص بإتقان',
+            price: 1.250,
+            category: 'hot_drinks',
+            restaurant: 'kohi',
+            image: 'images/espresso.png'
+        },
+        {
+            id: 'americano',
+            name: 'Americano',
+            nameAr: 'أمريكانو',
+            description: 'Espresso Shot and Water',
+            descriptionAr: 'شوت إسبريسو وماء',
+            price: 1.500,
+            category: 'hot_drinks',
+            restaurant: 'kohi',
+            image: 'images/americano.png'
+        },
         {
             id: 'spanish_latte',
             name: 'Spanish Latte',
             nameAr: 'سبانش لاتيه',
-            description: 'Rich espresso with sweetened condensed milk, steamed milk, and a hint of vanilla',
-            descriptionAr: 'إسبريسو غني مع حليب مكثف محلى وحليب مبخر ولمسة من الفانيليا',
-            price: 4.500,
-            category: 'best_sellers',
-            restaurant: 'kohi',
-            image: 'images/spanish-latte.png'
-        },
-        {
-            id: 'cappuccino',
-            name: 'Cappuccino',
-            nameAr: 'كابتشينو',
-            description: 'Classic Italian coffee with equal parts espresso, steamed milk, and milk foam',
-            descriptionAr: 'قهوة إيطالية كلاسيكية بأجزاء متساوية من الإسبريسو والحليب المبخر ورغوة الحليب',
-            price: 4.500,
-            category: 'best_sellers',
-            restaurant: 'kohi',
-            image: 'images/Cortado.png'
-        },
-        {
-            id: 'iced_spanish_latte',
-            name: 'Iced Spanish Latte',
-            nameAr: 'آيس سبانش لاتيه',
-            description: 'Chilled version of our signature Spanish latte over ice',
-            descriptionAr: 'نسخة مثلجة من السبانش لاتيه المميز لدينا',
-            price: 5.000,
-            category: 'best_sellers',
+            description: 'Sweetened milk and espresso shot',
+            descriptionAr: 'حليب محلى وشوت إسبريسو',
+            price: 2.000,
+            category: 'hot_drinks',
             restaurant: 'kohi',
             image: 'images/spanish-latte.png'
         },
@@ -102,527 +494,222 @@ const menuData = {
             id: 'matcha_latte',
             name: 'Matcha Latte',
             nameAr: 'ماتشا لاتيه',
-            description: 'Premium Japanese matcha whisked with steamed milk',
-            descriptionAr: 'ماتشا يابانية فاخرة مخفوقة مع الحليب المبخر',
-            price: 5.500,
-            category: 'best_sellers',
+            description: 'Matcha and Milk',
+            descriptionAr: 'ماتشا وحليب',
+            price: 2.000,
+            category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/matcha.png'
-        },
-        {
-            id: 'avocado_toast',
-            name: 'Avocado Toast',
-            nameAr: 'توست الأفوكادو',
-            description: 'Smashed avocado on sourdough with cherry tomatoes and microgreens',
-            descriptionAr: 'أفوكادو مهروس على خبز العجين المخمر مع طماطم كرزية وخضار صغيرة',
-            price: 8.500,
-            category: 'best_sellers',
-            restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=400&h=400&fit=crop'
-        },
-        {
-            id: 'tiramisu',
-            name: 'Tiramisu',
-            nameAr: 'تيراميسو',
-            description: 'Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone',
-            descriptionAr: 'حلوى إيطالية كلاسيكية مع طبقات من البسكويت المنقوع بالقهوة والماسكاربوني',
-            price: 8.000,
-            category: 'best_sellers',
-            restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=400&fit=crop'
-        },
-
-        // ==========================================
-        // KOHI - Hot Coffee
-        // ==========================================
-        {
-            id: 'espresso',
-            name: 'Espresso',
-            nameAr: 'إسبريسو',
-            description: 'Single shot of our signature espresso blend',
-            descriptionAr: 'جرعة واحدة من خلطة الإسبريسو المميزة لدينا',
-            price: 3.000,
-            category: 'hot_coffee',
-            restaurant: 'kohi',
-            image: 'images/Cortado.png'
-        },
-        {
-            id: 'double_espresso',
-            name: 'Double Espresso',
-            nameAr: 'دبل إسبريسو',
-            description: 'Double shot of our signature espresso blend',
-            descriptionAr: 'جرعة مزدوجة من خلطة الإسبريسو المميزة لدينا',
-            price: 4.000,
-            category: 'hot_coffee',
-            restaurant: 'kohi',
-            image: 'images/Cortado.png'
-        },
-        {
-            id: 'americano',
-            name: 'Americano',
-            nameAr: 'أمريكانو',
-            description: 'Espresso diluted with hot water for a smooth, rich flavor',
-            descriptionAr: 'إسبريسو ممدد بالماء الساخن لنكهة ناعمة وغنية',
-            price: 3.500,
-            category: 'hot_coffee',
-            restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/matcha-latte.png'
         },
         {
             id: 'latte',
             name: 'Latte',
             nameAr: 'لاتيه',
-            description: 'Espresso with steamed milk and a light layer of foam',
-            descriptionAr: 'إسبريسو مع حليب مبخر وطبقة خفيفة من الرغوة',
-            price: 4.500,
-            category: 'hot_coffee',
+            description: 'Espresso Shot and Milk',
+            descriptionAr: 'شوت إسبريسو وحليب',
+            price: 1.750,
+            category: 'hot_drinks',
             restaurant: 'kohi',
             image: 'images/latte.png'
         },
         {
-            id: 'flat_white',
-            name: 'Flat White',
+            id: 'flatwhite',
+            name: 'Flatwhite',
             nameAr: 'فلات وايت',
-            description: 'Double espresso with velvety microfoam milk',
-            descriptionAr: 'إسبريسو مزدوج مع حليب مخملي ناعم',
-            price: 4.500,
-            category: 'hot_coffee',
+            description: 'Espresso Shot and Milk',
+            descriptionAr: 'شوت إسبريسو وحليب',
+            price: 1.750,
+            category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/latte.png'
+            image: 'images/flatwhite.png'
         },
         {
             id: 'cortado',
             name: 'Cortado',
             nameAr: 'كورتادو',
-            description: 'Equal parts espresso and steamed milk',
-            descriptionAr: 'أجزاء متساوية من الإسبريسو والحليب المبخر',
-            price: 4.000,
-            category: 'hot_coffee',
+            description: 'Espresso Shot and Milk',
+            descriptionAr: 'شوت إسبريسو وحليب',
+            price: 1.500,
+            category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/cortado.png'
+        },
+        {
+            id: 'cappuccino',
+            name: 'Cappuccino',
+            nameAr: 'كابتشينو',
+            description: 'Espresso Shot and Milk',
+            descriptionAr: 'شوت إسبريسو وحليب',
+            price: 1.750,
+            category: 'hot_drinks',
+            restaurant: 'kohi',
+            image: 'images/cappuccino.png'
+        },
+        {
+            id: 'macchiato',
+            name: 'Macchiato',
+            nameAr: 'ماكياتو',
+            description: 'Espresso Shot and Milk',
+            descriptionAr: 'شوت إسبريسو وحليب',
+            price: 1.500,
+            category: 'hot_drinks',
+            restaurant: 'kohi',
+            image: 'images/macchiato.png'
         },
         {
             id: 'mocha',
             name: 'Mocha',
             nameAr: 'موكا',
-            description: 'Espresso with chocolate, steamed milk, and whipped cream',
-            descriptionAr: 'إسبريسو مع الشوكولاتة والحليب المبخر والكريمة المخفوقة',
-            price: 5.000,
-            category: 'hot_coffee',
+            description: 'Espresso Shot, Mocha and Milk',
+            descriptionAr: 'شوت إسبريسو، موكا وحليب',
+            price: 2.000,
+            category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/mocha.png'
         },
         {
-            id: 'caramel_latte',
-            name: 'Caramel Latte',
-            nameAr: 'كراميل لاتيه',
-            description: 'Latte with rich caramel syrup and caramel drizzle',
-            descriptionAr: 'لاتيه مع شراب الكراميل الغني ورذاذ الكراميل',
-            price: 5.000,
-            category: 'hot_coffee',
+            id: 'white_mocha',
+            name: 'White Mocha',
+            nameAr: 'وايت موكا',
+            description: 'Espresso Shot, White Mocha and Milk',
+            descriptionAr: 'شوت إسبريسو، وايت موكا وحليب',
+            price: 2.000,
+            category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/latte.png'
-        },
-        {
-            id: 'vanilla_latte',
-            name: 'Vanilla Latte',
-            nameAr: 'فانيلا لاتيه',
-            description: 'Latte with smooth vanilla syrup',
-            descriptionAr: 'لاتيه مع شراب الفانيليا الناعم',
-            price: 5.000,
-            category: 'hot_coffee',
-            restaurant: 'kohi',
-            image: 'images/latte.png'
-        },
-        {
-            id: 'hazelnut_latte',
-            name: 'Hazelnut Latte',
-            nameAr: 'هازلنت لاتيه',
-            description: 'Latte with aromatic hazelnut syrup',
-            descriptionAr: 'لاتيه مع شراب البندق العطري',
-            price: 5.000,
-            category: 'hot_coffee',
-            restaurant: 'kohi',
-            image: 'images/latte.png'
+            image: 'images/white-mocha.png'
         },
         {
             id: 'hot_chocolate',
             name: 'Hot Chocolate',
-            nameAr: 'هوت شوكوليت',
-            description: 'Rich Belgian chocolate with steamed milk and cream',
-            descriptionAr: 'شوكولاتة بلجيكية غنية مع الحليب المبخر والكريمة',
-            price: 4.500,
-            category: 'hot_coffee',
+            nameAr: 'شوكولاتة ساخنة',
+            description: 'Chocolate, Milk and Marshmallow',
+            descriptionAr: 'شوكولاتة، حليب ومارشميلو',
+            price: 1.500,
+            category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
-        },
-        {
-            id: 'chai_latte',
-            name: 'Chai Latte',
-            nameAr: 'تشاي لاتيه',
-            description: 'Spiced chai tea with steamed milk',
-            descriptionAr: 'شاي تشاي متبل مع الحليب المبخر',
-            price: 4.500,
-            category: 'hot_coffee',
-            restaurant: 'kohi',
-            image: 'images/Cortado.png'
-        },
-        {
-            id: 'turkish_coffee',
-            name: 'Turkish Coffee',
-            nameAr: 'قهوة تركية',
-            description: 'Traditional Turkish coffee with cardamom',
-            descriptionAr: 'قهوة تركية تقليدية مع الهال',
-            price: 3.500,
-            category: 'hot_coffee',
-            restaurant: 'kohi',
-            image: 'images/Cortado.png'
-        },
-        {
-            id: 'arabic_coffee',
-            name: 'Arabic Coffee',
-            nameAr: 'قهوة عربية',
-            description: 'Traditional Arabic coffee with saffron and cardamom',
-            descriptionAr: 'قهوة عربية تقليدية مع الزعفران والهال',
-            price: 3.000,
-            category: 'hot_coffee',
-            restaurant: 'kohi',
-            image: 'images/Cortado.png'
-        },
-        {
-            id: 'karak_tea',
-            name: 'Karak Tea',
-            nameAr: 'شاي كرك',
-            description: 'Traditional spiced milk tea',
-            descriptionAr: 'شاي حليب متبل تقليدي',
-            price: 2.500,
-            category: 'hot_coffee',
-            restaurant: 'kohi',
-            image: 'images/Cortado.png'
-        },
-        {
-            id: 'hot_matcha',
-            name: 'Hot Matcha',
-            nameAr: 'ماتشا ساخنة',
-            description: 'Premium matcha whisked with steamed milk',
-            descriptionAr: 'ماتشا فاخرة مخفوقة مع الحليب المبخر',
-            price: 5.500,
-            category: 'hot_coffee',
-            restaurant: 'kohi',
-            image: 'images/matcha.png'
+            image: 'images/hot-chocolate.png'
         },
 
         // ==========================================
-        // KOHI - Cold Coffee
+        // BREWED COFFEE
         // ==========================================
-        {
-            id: 'iced_americano',
-            name: 'Iced Americano',
-            nameAr: 'آيس أمريكانو',
-            description: 'Espresso with cold water over ice',
-            descriptionAr: 'إسبريسو مع ماء بارد على الثلج',
-            price: 4.000,
-            category: 'cold_coffee',
-            restaurant: 'kohi',
-            image: 'images/Cortado.png'
-        },
-        {
-            id: 'iced_latte',
-            name: 'Iced Latte',
-            nameAr: 'آيس لاتيه',
-            description: 'Espresso with cold milk over ice',
-            descriptionAr: 'إسبريسو مع حليب بارد على الثلج',
-            price: 5.000,
-            category: 'cold_coffee',
-            restaurant: 'kohi',
-            image: 'images/latte.png'
-        },
-        {
-            id: 'iced_mocha',
-            name: 'Iced Mocha',
-            nameAr: 'آيس موكا',
-            description: 'Chilled espresso with chocolate and milk over ice',
-            descriptionAr: 'إسبريسو مثلج مع الشوكولاتة والحليب على الثلج',
-            price: 5.500,
-            category: 'cold_coffee',
-            restaurant: 'kohi',
-            image: 'images/Cortado.png'
-        },
         {
             id: 'cold_brew',
-            name: 'Cold Brew',
+            name: 'Cold Brew Coffee',
             nameAr: 'كولد برو',
-            description: 'Slow-steeped cold brew coffee',
-            descriptionAr: 'قهوة كولد برو منقوعة ببطء',
-            price: 5.000,
-            category: 'cold_coffee',
+            description: 'Brewed for 24 hours',
+            descriptionAr: 'مخمر لمدة ٢٤ ساعة',
+            price: 2.000,
+            category: 'brewed_coffee',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/cold-brew.png'
         },
         {
-            id: 'iced_caramel_latte',
-            name: 'Iced Caramel Latte',
-            nameAr: 'آيس كراميل لاتيه',
-            description: 'Iced latte with caramel syrup and drizzle',
-            descriptionAr: 'لاتيه مثلج مع شراب ورذاذ الكراميل',
-            price: 5.500,
-            category: 'cold_coffee',
+            id: 'iced_v60',
+            name: 'Iced V60 Coffee',
+            nameAr: 'V60 مثلج',
+            description: 'Cold specialty filtered Japanese-style coffee',
+            descriptionAr: 'قهوة مفلترة على الطريقة اليابانية مثلجة',
+            price: 2.000,
+            category: 'brewed_coffee',
             restaurant: 'kohi',
-            image: 'images/latte.png'
+            image: 'images/iced-v60.png'
         },
         {
-            id: 'iced_vanilla_latte',
-            name: 'Iced Vanilla Latte',
-            nameAr: 'آيس فانيلا لاتيه',
-            description: 'Iced latte with vanilla syrup',
-            descriptionAr: 'لاتيه مثلج مع شراب الفانيليا',
-            price: 5.500,
-            category: 'cold_coffee',
+            id: 'v60',
+            name: 'V60 Coffee',
+            nameAr: 'V60 قهوة',
+            description: 'Specialty filtered Japanese-style coffee',
+            descriptionAr: 'قهوة مفلترة على الطريقة اليابانية',
+            price: 2.000,
+            category: 'brewed_coffee',
             restaurant: 'kohi',
-            image: 'images/latte.png'
-        },
-        {
-            id: 'iced_matcha',
-            name: 'Iced Matcha',
-            nameAr: 'آيس ماتشا',
-            description: 'Premium matcha shaken with milk and ice',
-            descriptionAr: 'ماتشا فاخرة مخفوقة مع الحليب والثلج',
-            price: 6.000,
-            category: 'cold_coffee',
-            restaurant: 'kohi',
-            image: 'images/matcha.png'
-        },
-        {
-            id: 'frappe',
-            name: 'Frappe',
-            nameAr: 'فرابيه',
-            description: 'Blended iced coffee with milk and cream',
-            descriptionAr: 'قهوة مثلجة مخفوقة مع الحليب والكريمة',
-            price: 5.500,
-            category: 'cold_coffee',
-            restaurant: 'kohi',
-            image: 'images/Cortado.png'
-        },
-        {
-            id: 'mocha_frappe',
-            name: 'Mocha Frappe',
-            nameAr: 'موكا فرابيه',
-            description: 'Blended iced coffee with chocolate, milk and cream',
-            descriptionAr: 'قهوة مثلجة مخفوقة مع الشوكولاتة والحليب والكريمة',
-            price: 6.000,
-            category: 'cold_coffee',
-            restaurant: 'kohi',
-            image: 'images/Cortado.png'
-        },
-        {
-            id: 'caramel_frappe',
-            name: 'Caramel Frappe',
-            nameAr: 'كراميل فرابيه',
-            description: 'Blended iced coffee with caramel, milk and cream',
-            descriptionAr: 'قهوة مثلجة مخفوقة مع الكراميل والحليب والكريمة',
-            price: 6.000,
-            category: 'cold_coffee',
-            restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/v60.png'
         },
 
         // ==========================================
-        // KOHI - Iced Teas & Refreshers
+        // MOJITO & ICED TEA
         // ==========================================
         {
-            id: 'iced_tea',
-            name: 'Iced Tea',
-            nameAr: 'شاي مثلج',
-            description: 'Fresh brewed iced tea with lemon',
-            descriptionAr: 'شاي مثلج طازج مع الليمون',
-            price: 3.500,
-            category: 'iced_teas',
+            id: 'kohi_lagoon_mojito',
+            name: 'Kohi Lagoon Mojito',
+            nameAr: 'موهيتو كوهي لاجون',
+            description: 'Kohi Mix, Lemon, Mint, Sprite',
+            descriptionAr: 'خلطة كوهي، ليمون، نعناع، سبرايت',
+            price: 1.750,
+            category: 'mojito_iced_tea',
             restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=400&fit=crop'
+            image: 'images/kohi-lagoon-mojito.png'
         },
         {
-            id: 'peach_iced_tea',
-            name: 'Peach Iced Tea',
-            nameAr: 'شاي خوخ مثلج',
-            description: 'Iced tea with sweet peach flavor',
-            descriptionAr: 'شاي مثلج بنكهة الخوخ الحلو',
-            price: 4.000,
-            category: 'iced_teas',
+            id: 'mixed_berries_mojito',
+            name: 'Mixed Berries Mojito',
+            nameAr: 'موهيتو توت مشكل',
+            description: 'Mixed berries syrup, lemon, mint, Sprite',
+            descriptionAr: 'شراب التوت المشكل، ليمون، نعناع، سبرايت',
+            price: 2.000,
+            category: 'mojito_iced_tea',
             restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=400&fit=crop'
+            image: 'images/mixed-berries-mojito.png'
         },
         {
-            id: 'passion_fruit_refresher',
-            name: 'Passion Fruit Refresher',
-            nameAr: 'منعش فاكهة العاطفة',
-            description: 'Tropical passion fruit with sparkling water',
-            descriptionAr: 'فاكهة العاطفة الاستوائية مع ماء فوار',
-            price: 4.500,
-            category: 'iced_teas',
+            id: 'lime_mojito',
+            name: 'Lime Mojito',
+            nameAr: 'موهيتو ليمون',
+            description: 'Lime, lemon, mint, Sprite',
+            descriptionAr: 'ليمون أخضر، ليمون، نعناع، سبرايت',
+            price: 1.750,
+            category: 'mojito_iced_tea',
             restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=400&fit=crop'
+            image: 'images/lime-mojito.png'
         },
         {
-            id: 'berry_refresher',
-            name: 'Berry Refresher',
-            nameAr: 'منعش التوت',
-            description: 'Mixed berries with sparkling water and mint',
-            descriptionAr: 'توت مشكل مع ماء فوار ونعناع',
-            price: 4.500,
-            category: 'iced_teas',
+            id: 'strawberry_mojito',
+            name: 'Strawberry Mojito',
+            nameAr: 'موهيتو فراولة',
+            description: 'Strawberry syrup, lemon, mint, Sprite',
+            descriptionAr: 'شراب الفراولة، ليمون، نعناع، سبرايت',
+            price: 1.750,
+            category: 'mojito_iced_tea',
             restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=400&fit=crop'
+            image: 'images/strawberry-mojito.png'
         },
         {
-            id: 'lemonade',
-            name: 'Fresh Lemonade',
-            nameAr: 'ليمونادة طازجة',
-            description: 'Freshly squeezed lemonade with mint',
-            descriptionAr: 'ليمونادة معصورة طازجة مع النعناع',
-            price: 3.500,
-            category: 'iced_teas',
+            id: 'passion_fruit_mojito',
+            name: 'Passion Fruit Mojito',
+            nameAr: 'موهيتو باشن فروت',
+            description: 'Passion fruit syrup, lemon, mint, Sprite',
+            descriptionAr: 'شراب فاكهة الباشن، ليمون، نعناع، سبرايت',
+            price: 1.750,
+            category: 'mojito_iced_tea',
             restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=400&h=400&fit=crop'
+            image: 'images/passion-fruit-mojito.png'
+        },
+        {
+            id: 'peach_mojito',
+            name: 'Peach Mojito',
+            nameAr: 'موهيتو خوخ',
+            description: 'Peach syrup, lemon, mint, Sprite',
+            descriptionAr: 'شراب الخوخ، ليمون، نعناع، سبرايت',
+            price: 1.750,
+            category: 'mojito_iced_tea',
+            restaurant: 'kohi',
+            image: 'images/peach-mojito.png'
         },
 
         // ==========================================
-        // KOHI - Breakfast & Light Bites
+        // WATER
         // ==========================================
         {
-            id: 'eggs_benedict',
-            name: 'Eggs Benedict',
-            nameAr: 'إيجز بينيديكت',
-            description: 'Poached eggs on English muffin with hollandaise sauce',
-            descriptionAr: 'بيض مسلوق على خبز إنجليزي مع صلصة هولنديز',
-            price: 12.000,
-            category: 'breakfast',
+            id: 'water',
+            name: 'Water',
+            nameAr: 'مياه',
+            description: 'Mineral water',
+            descriptionAr: 'مياه معدنية',
+            price: 0.450,
+            category: 'water',
             restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1608039829572-f56f0e59be96?w=400&h=400&fit=crop'
-        },
-        {
-            id: 'pancakes',
-            name: 'Fluffy Pancakes',
-            nameAr: 'بانكيك هشة',
-            description: 'Stack of fluffy pancakes with maple syrup and berries',
-            descriptionAr: 'رصة من البانكيك الهشة مع شراب القيقب والتوت',
-            price: 9.500,
-            category: 'breakfast',
-            restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=400&fit=crop'
-        },
-        {
-            id: 'french_toast',
-            name: 'French Toast',
-            nameAr: 'فرنش توست',
-            description: 'Classic French toast with cinnamon and powdered sugar',
-            descriptionAr: 'فرنش توست كلاسيكي مع القرفة والسكر البودرة',
-            price: 8.500,
-            category: 'breakfast',
-            restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&h=400&fit=crop'
-        },
-        {
-            id: 'halloumi_plate',
-            name: 'Grilled Halloumi Plate',
-            nameAr: 'طبق حلومي مشوي',
-            description: 'Grilled halloumi with tomatoes, cucumber, and zaatar bread',
-            descriptionAr: 'حلومي مشوي مع طماطم وخيار وخبز زعتر',
-            price: 10.000,
-            category: 'breakfast',
-            restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=400&fit=crop'
-        },
-        {
-            id: 'croissant',
-            name: 'Butter Croissant',
-            nameAr: 'كرواسان بالزبدة',
-            description: 'Freshly baked French butter croissant',
-            descriptionAr: 'كرواسان فرنسي بالزبدة طازج',
-            price: 3.500,
-            category: 'breakfast',
-            restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=400&fit=crop'
-        },
-        {
-            id: 'chocolate_croissant',
-            name: 'Chocolate Croissant',
-            nameAr: 'كرواسان بالشوكولاتة',
-            description: 'Flaky croissant filled with rich chocolate',
-            descriptionAr: 'كرواسان مقرمش محشو بالشوكولاتة الغنية',
-            price: 4.000,
-            category: 'breakfast',
-            restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=400&h=400&fit=crop'
-        },
-
-        // ==========================================
-        // KOHI - Desserts & Sweets
-        // ==========================================
-        {
-            id: 'cheesecake',
-            name: 'New York Cheesecake',
-            nameAr: 'تشيز كيك نيويورك',
-            description: 'Creamy New York style cheesecake with berry compote',
-            descriptionAr: 'تشيز كيك كريمي على طريقة نيويورك مع كومبوت التوت',
-            price: 8.500,
-            category: 'desserts',
-            restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=400&h=400&fit=crop'
-        },
-        {
-            id: 'chocolate_cake',
-            name: 'Chocolate Lava Cake',
-            nameAr: 'كيكة الشوكولاتة السائلة',
-            description: 'Warm chocolate cake with molten center and vanilla ice cream',
-            descriptionAr: 'كيكة شوكولاتة دافئة بقلب سائل مع آيس كريم فانيليا',
-            price: 9.000,
-            category: 'desserts',
-            restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=400&fit=crop'
-        },
-        {
-            id: 'baklava',
-            name: 'Baklava',
-            nameAr: 'بقلاوة',
-            description: 'Traditional Middle Eastern pastry with pistachios and honey',
-            descriptionAr: 'حلوى شرق أوسطية تقليدية مع الفستق والعسل',
-            price: 6.500,
-            category: 'desserts',
-            restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1519676867240-f03562e64548?w=400&h=400&fit=crop'
-        },
-        {
-            id: 'cookies',
-            name: 'Chocolate Chip Cookies',
-            nameAr: 'كوكيز رقائق الشوكولاتة',
-            description: 'Fresh baked chocolate chip cookies (3 pieces)',
-            descriptionAr: 'كوكيز رقائق الشوكولاتة الطازجة (3 قطع)',
-            price: 4.500,
-            category: 'desserts',
-            restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&h=400&fit=crop'
-        },
-        {
-            id: 'brownie',
-            name: 'Fudge Brownie',
-            nameAr: 'براوني فدج',
-            description: 'Rich chocolate brownie with walnuts',
-            descriptionAr: 'براوني شوكولاتة غنية مع الجوز',
-            price: 5.500,
-            category: 'desserts',
-            restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400&h=400&fit=crop'
-        },
-        {
-            id: 'kunafa',
-            name: 'Kunafa',
-            nameAr: 'كنافة',
-            description: 'Traditional cheese kunafa with sugar syrup',
-            descriptionAr: 'كنافة جبن تقليدية مع شربات السكر',
-            price: 7.000,
-            category: 'desserts',
-            restaurant: 'kohi',
-            image: 'https://images.unsplash.com/photo-1579888944880-d98341245702?w=400&h=400&fit=crop'
+            image: 'images/water.png'
         }
     ]
 };
