@@ -548,6 +548,25 @@ function renderCartItems() {
 function checkout() {
     if (state.cart.length === 0) return;
 
+    // Build order summary
+    const orderSummary = document.getElementById('order-summary');
+    const orderTotal = document.getElementById('order-summary-total');
+
+    const summaryHtml = state.cart.map(cartItem => {
+        const item = getItemById(cartItem.id);
+        if (!item) return '';
+        const name = state.currentLang === 'ar' ? item.nameAr : item.name;
+        return `
+            <div class="order-summary-item">
+                <span class="order-item-qty">${formatNumber(cartItem.quantity, state.currentLang)}x</span>
+                <span class="order-item-name">${name}</span>
+            </div>
+        `;
+    }).join('');
+
+    orderSummary.innerHTML = summaryHtml;
+    orderTotal.innerHTML = `<strong>${t('total', state.currentLang)}:</strong> ${formatPrice(getCartTotal(), state.currentLang)}`;
+
     // Show thank you modal
     elements.thankyouModal.classList.add('active');
 }
@@ -555,14 +574,9 @@ function checkout() {
 function closeThankYouModal() {
     elements.thankyouModal.classList.remove('active');
 
-    // Clear cart after checkout
-    state.cart = [];
-    saveState();
-    updateCartUI();
-
-    // Go back to menu
-    hideCart();
-    renderMenuItems();
+    // Go back to welcome screen (keep the order in cart)
+    state.currentRestaurant = null;
+    showScreen('welcome-screen');
 }
 
 // ==========================================
