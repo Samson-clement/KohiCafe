@@ -49,6 +49,7 @@ const translations = {
         order_confirmed: "Order Confirmed",
         checkout_message: "Your order has been received",
         checkout_instruction: "Please inform your waiter",
+        show_barista: "Please call the barista and show them this order",
         no_payment_note: "No payment required - just confirms your order",
 
         // Clear order
@@ -103,6 +104,7 @@ const translations = {
         order_confirmed: "تم تأكيد الطلب",
         checkout_message: "تم استلام طلبك",
         checkout_instruction: "يرجى إبلاغ النادل",
+        show_barista: "يرجى مناداة الباريستا وإظهار هذا الطلب",
         no_payment_note: "لا يلزم الدفع - فقط لتأكيد طلبك",
 
         // Clear order

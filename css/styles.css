@@ -1271,11 +1271,22 @@ img {
     width: 100%;
     text-align: center;
     padding: var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
     font-size: 1rem;
     color: var(--text-primary);
     background: var(--kohi-cream-dark);
     border-radius: var(--radius-md);
+}
+
+.order-instruction {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--current-primary);
+    font-weight: 500;
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: rgba(92, 74, 61, 0.1);
+    border-radius: var(--radius-sm);
 }
 
 .thankyou-btn {
