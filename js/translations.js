@@ -44,7 +44,8 @@ const translations = {
         // Checkout
         thank_you: "Thank You!",
         checkout_message: "Your order has been received",
-        checkout_instruction: "Please inform your waiter"
+        checkout_instruction: "Please inform your waiter",
+        no_payment_note: "No payment required - just confirms your order"
     },
 
     ar: {
@@ -87,7 +88,8 @@ const translations = {
         // Checkout
         thank_you: "شكراً لك!",
         checkout_message: "تم استلام طلبك",
-        checkout_instruction: "يرجى إبلاغ النادل"
+        checkout_instruction: "يرجى إبلاغ النادل",
+        no_payment_note: "لا يلزم الدفع - فقط لتأكيد طلبك"
     }
 };
 

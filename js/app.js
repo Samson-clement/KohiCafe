@@ -218,6 +218,7 @@ function goBack() {
 function showCart() {
     renderCartItems();
     showScreen('cart-screen');
+    updateTranslations();
 }
 
 function hideCart() {
@@ -256,6 +257,11 @@ function renderCategories() {
             state.currentCategory = tab.dataset.category;
             renderCategories();
             renderMenuItems();
+            // Scroll menu content to top
+            const menuContent = document.getElementById('menu-content');
+            if (menuContent) {
+                menuContent.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         });
     });
 }
