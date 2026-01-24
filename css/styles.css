@@ -1290,6 +1290,73 @@ img {
     background: var(--current-light);
 }
 
+/* Clear Confirmation Modal */
+.confirm-content {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    padding: var(--spacing-xl);
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    transform: scale(0.9);
+    transition: transform var(--transition-normal);
+}
+
+.modal.active .confirm-content {
+    transform: scale(1);
+}
+
+.confirm-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.confirm-message {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.confirm-btn {
+    flex: 1;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.confirm-btn:active {
+    transform: scale(0.98);
+}
+
+.confirm-cancel {
+    background: var(--gray-200);
+    color: var(--text-primary);
+}
+
+.confirm-cancel:hover {
+    background: var(--gray-300);
+}
+
+.confirm-yes {
+    background: #dc2626;
+    color: var(--white);
+}
+
+.confirm-yes:hover {
+    background: #b91c1c;
+}
+
 /* ==========================================
    TOAST NOTIFICATION
    ========================================== */

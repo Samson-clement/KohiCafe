@@ -46,7 +46,13 @@ const translations = {
         order_confirmed: "Order Confirmed",
         checkout_message: "Your order has been received",
         checkout_instruction: "Please inform your waiter",
-        no_payment_note: "No payment required - just confirms your order"
+        no_payment_note: "No payment required - just confirms your order",
+
+        // Clear order
+        clear_order_title: "Clear Order?",
+        clear_order_message: "Are you sure you want to clear all items from your order?",
+        cancel: "Cancel",
+        yes_clear: "Yes, Clear"
     },
 
     ar: {
@@ -91,7 +97,13 @@ const translations = {
         order_confirmed: "تم تأكيد الطلب",
         checkout_message: "تم استلام طلبك",
         checkout_instruction: "يرجى إبلاغ النادل",
-        no_payment_note: "لا يلزم الدفع - فقط لتأكيد طلبك"
+        no_payment_note: "لا يلزم الدفع - فقط لتأكيد طلبك",
+
+        // Clear order
+        clear_order_title: "مسح الطلب؟",
+        clear_order_message: "هل أنت متأكد من مسح جميع العناصر من طلبك؟",
+        cancel: "إلغاء",
+        yes_clear: "نعم، مسح"
     }
 };
 

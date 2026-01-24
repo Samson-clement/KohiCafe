@@ -435,13 +435,24 @@ function removeFromCart(itemId) {
 }
 
 function clearCart() {
-    if (confirm(t('clear_cart', state.currentLang) + '?')) {
-        state.cart = [];
-        saveState();
-        updateCartUI();
-        renderMenuItems();
-        renderCartItems();
-    }
+    // Show clear confirmation modal
+    const clearModal = document.getElementById('clear-modal');
+    clearModal.classList.add('active');
+    updateTranslations();
+}
+
+function confirmClearCart() {
+    state.cart = [];
+    saveState();
+    updateCartUI();
+    renderMenuItems();
+    renderCartItems();
+    closeClearModal();
+}
+
+function closeClearModal() {
+    const clearModal = document.getElementById('clear-modal');
+    clearModal.classList.remove('active');
 }
 
 function getCartTotal() {
@@ -630,6 +641,11 @@ function setupEventListeners() {
     // Thank you modal
     elements.thankyouCloseBtn.addEventListener('click', closeThankYouModal);
     elements.thankyouModal.querySelector('.modal-backdrop').addEventListener('click', closeThankYouModal);
+
+    // Clear confirmation modal
+    document.getElementById('clear-cancel-btn').addEventListener('click', closeClearModal);
+    document.getElementById('clear-yes-btn').addEventListener('click', confirmClearCart);
+    document.getElementById('clear-modal').querySelector('.modal-backdrop').addEventListener('click', closeClearModal);
 
     // Handle back button / swipe
     window.addEventListener('popstate', () => {
