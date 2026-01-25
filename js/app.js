@@ -95,18 +95,58 @@ function preloadMenu() {
     renderMenuItems();
     updateCartUI();
 
-    // Preload images
-    preloadImages();
+    // Preload all images aggressively
+    preloadAllImages();
 }
 
-function preloadImages() {
-    // Get all menu items and preload their images
+function preloadAllImages() {
+    // Collect all unique images
+    const imagesToLoad = new Set();
+
+    // Add background images (using smaller JPG files)
+    imagesToLoad.add('images/kohiBG.jpg');
+    imagesToLoad.add('images/kohibg2.jpg');
+
+    // Add all menu item images
     const items = getItemsByRestaurant('kohi');
     items.forEach(item => {
         if (item.image) {
-            const img = new Image();
-            img.src = item.image;
+            imagesToLoad.add(item.image);
         }
+    });
+
+    // Add placeholder
+    imagesToLoad.add('images/placeholder.png');
+
+    // Preload all images with high priority
+    const imagePromises = Array.from(imagesToLoad).map(src => {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve(src);
+            img.onerror = () => resolve(src); // Resolve even on error to not block
+            img.src = src;
+            // Force high priority fetch
+            img.fetchPriority = 'high';
+        });
+    });
+
+    // Track loading progress
+    let loadedCount = 0;
+    const totalCount = imagesToLoad.size;
+
+    imagePromises.forEach(promise => {
+        promise.then(() => {
+            loadedCount++;
+            // Optional: update loading indicator
+            const progress = Math.round((loadedCount / totalCount) * 100);
+            console.log(`Images loaded: ${progress}%`);
+        });
+    });
+
+    // Mark as ready when all loaded
+    Promise.all(imagePromises).then(() => {
+        console.log('All images preloaded!');
+        document.body.classList.add('images-loaded');
     });
 }
 
@@ -428,8 +468,29 @@ function addToCart(item) {
 
     saveState();
     updateCartUI();
-    renderMenuItems();
+    updateMenuItemUI(item.id); // Only update the specific item, not all
     showToast();
+}
+
+function updateMenuItemUI(itemId) {
+    const menuItem = document.querySelector(`.menu-item[data-item-id="${itemId}"]`);
+    if (!menuItem) return;
+
+    const cartItem = state.cart.find(ci => ci.id === itemId);
+    const quantity = cartItem ? cartItem.quantity : 0;
+
+    const qtyControls = menuItem.querySelector('.quantity-controls');
+    const addBtn = menuItem.querySelector('.add-btn');
+    const qtyValue = menuItem.querySelector('.qty-value');
+
+    if (quantity > 0) {
+        qtyControls.classList.add('visible');
+        addBtn.style.display = 'none';
+        qtyValue.textContent = formatNumber(quantity, state.currentLang);
+    } else {
+        qtyControls.classList.remove('visible');
+        addBtn.style.display = '';
+    }
 }
 
 function updateCartQuantity(itemId, delta) {
@@ -444,7 +505,7 @@ function updateCartQuantity(itemId, delta) {
 
         saveState();
         updateCartUI();
-        renderMenuItems();
+        updateMenuItemUI(itemId); // Only update the specific item, not all
 
         if (elements.cartScreen.classList.contains('active')) {
             renderCartItems();
@@ -456,7 +517,7 @@ function removeFromCart(itemId) {
     state.cart = state.cart.filter(ci => ci.id !== itemId);
     saveState();
     updateCartUI();
-    renderMenuItems();
+    updateMenuItemUI(itemId); // Only update the specific item
     renderCartItems();
 }
 
@@ -468,10 +529,16 @@ function clearCart() {
 }
 
 function confirmClearCart() {
+    // Get all item IDs before clearing
+    const itemIds = state.cart.map(ci => ci.id);
+
     state.cart = [];
     saveState();
     updateCartUI();
-    renderMenuItems();
+
+    // Update each item's UI without re-rendering all
+    itemIds.forEach(id => updateMenuItemUI(id));
+
     renderCartItems();
     closeClearModal();
 }
