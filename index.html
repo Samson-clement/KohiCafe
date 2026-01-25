@@ -11,8 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Preload critical images -->
-    <link rel="preload" href="images/kohiBG.jpg" as="image" type="image/jpeg">
+    <!-- Preload critical images - Welcome screen first -->
+    <link rel="preload" href="images/kohiBG.jpg" as="image" type="image/jpeg" fetchpriority="high">
+    <!-- Menu background and priority items -->
     <link rel="preload" href="images/kohibg2.jpg" as="image" type="image/jpeg">
     <link rel="preload" href="images/matcha.png" as="image">
     <link rel="preload" href="images/Cortado.png" as="image">
@@ -20,7 +21,7 @@
     <link rel="preload" href="images/spanish-latte.png" as="image">
     <link rel="preload" href="images/placeholder.png" as="image">
 
-    <link rel="stylesheet" href="css/styles.css?v=23">
+    <link rel="stylesheet" href="css/styles.css?v=24">
 </head>
 <body>
     <!-- Welcome Screen -->
@@ -199,8 +200,8 @@
         <span class="toast-message" data-translate="added_to_order">Added to order</span>
     </div>
 
-    <script src="js/translations.js?v=18"></script>
-    <script src="js/data.js?v=18"></script>
-    <script src="js/app.js?v=18"></script>
+    <script src="js/translations.js?v=19"></script>
+    <script src="js/data.js?v=19"></script>
+    <script src="js/app.js?v=19"></script>
 </body>
 </html>

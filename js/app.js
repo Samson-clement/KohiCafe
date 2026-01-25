@@ -95,58 +95,79 @@ function preloadMenu() {
     renderMenuItems();
     updateCartUI();
 
-    // Preload all images aggressively
-    preloadAllImages();
+    // Stage 1: Load welcome screen background first (highest priority)
+    preloadWelcomeImages().then(() => {
+        // Stage 2: Load menu background and priority categories
+        preloadPriorityImages();
+    });
 }
 
-function preloadAllImages() {
-    // Collect all unique images
-    const imagesToLoad = new Set();
+function preloadWelcomeImages() {
+    return new Promise((resolve) => {
+        const welcomeBg = new Image();
+        welcomeBg.fetchPriority = 'high';
+        welcomeBg.onload = () => {
+            console.log('Welcome background loaded');
+            resolve();
+        };
+        welcomeBg.onerror = () => resolve();
+        welcomeBg.src = 'images/kohiBG.jpg';
+    });
+}
 
-    // Add background images (using smaller JPG files)
-    imagesToLoad.add('images/kohiBG.jpg');
-    imagesToLoad.add('images/kohibg2.jpg');
+function preloadPriorityImages() {
+    // Priority order: menu background, then best sellers, boba drinks, then rest
+    const priorityCategories = ['best_sellers', 'boba_drinks'];
+    const allItems = getItemsByRestaurant('kohi');
 
-    // Add all menu item images
-    const items = getItemsByRestaurant('kohi');
-    items.forEach(item => {
+    // Get unique images by priority
+    const priorityImages = new Set();
+    const otherImages = new Set();
+
+    // Menu background is high priority
+    priorityImages.add('images/kohibg2.jpg');
+    priorityImages.add('images/placeholder.png');
+
+    // Sort items by category priority
+    allItems.forEach(item => {
         if (item.image) {
-            imagesToLoad.add(item.image);
+            if (priorityCategories.includes(item.category)) {
+                priorityImages.add(item.image);
+            } else {
+                otherImages.add(item.image);
+            }
         }
     });
 
-    // Add placeholder
-    imagesToLoad.add('images/placeholder.png');
+    // Load priority images first (with high priority)
+    const priorityPromises = Array.from(priorityImages).map(src => loadImage(src, 'high'));
 
-    // Preload all images with high priority
-    const imagePromises = Array.from(imagesToLoad).map(src => {
-        return new Promise((resolve) => {
-            const img = new Image();
-            img.onload = () => resolve(src);
-            img.onerror = () => resolve(src); // Resolve even on error to not block
-            img.src = src;
-            // Force high priority fetch
-            img.fetchPriority = 'high';
-        });
+    Promise.all(priorityPromises).then(() => {
+        console.log('Priority images loaded (Best Sellers & Boba)');
+        // Then load the rest with lower priority
+        Array.from(otherImages).forEach(src => loadImage(src, 'low'));
     });
+}
 
-    // Track loading progress
-    let loadedCount = 0;
-    const totalCount = imagesToLoad.size;
-
-    imagePromises.forEach(promise => {
-        promise.then(() => {
-            loadedCount++;
-            // Optional: update loading indicator
-            const progress = Math.round((loadedCount / totalCount) * 100);
-            console.log(`Images loaded: ${progress}%`);
-        });
-    });
-
-    // Mark as ready when all loaded
-    Promise.all(imagePromises).then(() => {
-        console.log('All images preloaded!');
-        document.body.classList.add('images-loaded');
+function loadImage(src, priority = 'auto') {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.fetchPriority = priority;
+        img.onload = () => {
+            // Mark any visible images with this src as loaded
+            document.querySelectorAll(`img[src="${src}"]`).forEach(el => {
+                el.classList.remove('loading');
+                el.classList.add('loaded');
+            });
+            resolve(src);
+        };
+        img.onerror = () => {
+            document.querySelectorAll(`img[src="${src}"]`).forEach(el => {
+                el.classList.remove('loading');
+            });
+            resolve(src);
+        };
+        img.src = src;
     });
 }
 
@@ -400,8 +421,9 @@ function createMenuItemHTML(item) {
     return `
         <div class="menu-item" data-item-id="${item.id}">
             <div class="item-image-container">
-                <img src="${imageSrc}" alt="${name}" class="item-image" loading="lazy" decoding="async"
-                     onerror="this.onerror=null; this.src='images/placeholder.png';">
+                <img src="${imageSrc}" alt="${name}" class="item-image loading" loading="lazy" decoding="async"
+                     onload="this.classList.remove('loading'); this.classList.add('loaded');"
+                     onerror="this.onerror=null; this.classList.remove('loading'); this.src='images/placeholder.png';">
                 <div class="item-price-badge">${price}</div>
             </div>
             <div class="item-details">
