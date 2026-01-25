@@ -80,6 +80,34 @@ function init() {
 
     // Update translations
     updateTranslations();
+
+    // Preload menu content in background
+    preloadMenu();
+}
+
+function preloadMenu() {
+    // Pre-render menu content while on welcome screen
+    state.currentRestaurant = 'kohi';
+    state.currentCategory = 'best_sellers';
+
+    // Render categories and items in background
+    renderCategories();
+    renderMenuItems();
+    updateCartUI();
+
+    // Preload images
+    preloadImages();
+}
+
+function preloadImages() {
+    // Get all menu items and preload their images
+    const items = getItemsByRestaurant('kohi');
+    items.forEach(item => {
+        if (item.image) {
+            const img = new Image();
+            img.src = item.image;
+        }
+    });
 }
 
 function loadState() {
@@ -188,9 +216,6 @@ function showScreen(screenId) {
 }
 
 function selectRestaurant(restaurantId) {
-    state.currentRestaurant = restaurantId;
-    state.currentCategory = 'all';
-
     // Apply theme
     document.body.classList.remove('theme-kohi');
     document.body.classList.add(`theme-${restaurantId}`);
@@ -201,17 +226,21 @@ function selectRestaurant(restaurantId) {
         ? restaurant.nameAr
         : restaurant.name;
 
-    // Render menu content
-    renderCategories();
-    renderMenuItems();
-    updateCartUI();
+    // Only re-render if not already preloaded or language changed
+    if (state.currentRestaurant !== restaurantId) {
+        state.currentRestaurant = restaurantId;
+        state.currentCategory = 'best_sellers';
+        renderCategories();
+        renderMenuItems();
+        updateCartUI();
+    }
 
     // Show menu screen
     showScreen('menu-screen');
 }
 
 function goBack() {
-    state.currentRestaurant = null;
+    // Keep restaurant preloaded, just show welcome screen
     showScreen('welcome-screen');
 }
 
@@ -325,16 +354,14 @@ function createMenuItemHTML(item) {
     const cartItem = state.cart.find(ci => ci.id === item.id);
     const quantity = cartItem ? cartItem.quantity : 0;
 
-    // Determine image source
-    const imageSrc = item.image.startsWith('http')
-        ? item.image
-        : item.image;
+    // Use placeholder as default, lazy load actual image
+    const imageSrc = item.image || 'images/placeholder.png';
 
     return `
         <div class="menu-item" data-item-id="${item.id}">
             <div class="item-image-container">
-                <img src="${imageSrc}" alt="${name}" class="item-image"
-                     onerror="this.src='images/Cortado.png'">
+                <img src="${imageSrc}" alt="${name}" class="item-image" loading="lazy" decoding="async"
+                     onerror="this.onerror=null; this.src='images/placeholder.png';">
                 <div class="item-price-badge">${price}</div>
             </div>
             <div class="item-details">
@@ -365,13 +392,12 @@ function openItemModal(item) {
     const description = state.currentLang === 'ar' ? item.descriptionAr : item.description;
     const price = formatPrice(item.price, state.currentLang);
 
-    const imageSrc = item.image.startsWith('http')
-        ? item.image
-        : item.image;
+    const imageSrc = item.image || 'images/placeholder.png';
 
     elements.modalImage.src = imageSrc;
     elements.modalImage.alt = name;
-    elements.modalImage.onerror = function() { this.src = 'images/Cortado.png'; };
+    elements.modalImage.loading = 'eager';
+    elements.modalImage.onerror = function() { this.onerror=null; this.src = 'images/placeholder.png'; };
     elements.modalPrice.textContent = price;
     elements.modalTitle.textContent = name;
     elements.modalDescription.textContent = description;
@@ -507,14 +533,12 @@ function renderCartItems() {
         const restaurantName = state.currentLang === 'ar' ? restaurant.nameAr : restaurant.name;
         const itemTotal = item.price * cartItem.quantity;
 
-        const imageSrc = item.image.startsWith('http')
-            ? item.image
-            : item.image;
+        const imageSrc = item.image || 'images/placeholder.png';
 
         return `
             <div class="cart-item" data-item-id="${item.id}">
-                <img src="${imageSrc}" alt="${name}" class="cart-item-image"
-                     onerror="this.src='images/Cortado.png'">
+                <img src="${imageSrc}" alt="${name}" class="cart-item-image" loading="lazy"
+                     onerror="this.onerror=null; this.src='images/placeholder.png';">
                 <div class="cart-item-info">
                     <div>
                         <h3 class="cart-item-name">${name}</h3>
@@ -585,8 +609,7 @@ function checkout() {
 function closeThankYouModal() {
     elements.thankyouModal.classList.remove('active');
 
-    // Go back to welcome screen (keep the order in cart)
-    state.currentRestaurant = null;
+    // Go back to welcome screen (keep the order in cart and menu preloaded)
     showScreen('welcome-screen');
 }
 
