@@ -679,20 +679,123 @@ function setupEventListeners() {
         }
     });
 
-    // Touch swipe for back navigation
+    // Touch swipe for back navigation and category switching
     let touchStartX = 0;
+    let touchStartY = 0;
     let touchEndX = 0;
+    let touchEndY = 0;
 
+    const menuContent = document.getElementById('menu-content');
+
+    // Swipe on menu content for category switching
+    if (menuContent) {
+        menuContent.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        menuContent.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleCategorySwipe();
+        }, { passive: true });
+    }
+
+    let isAnimating = false;
+
+    function handleCategorySwipe() {
+        if (isAnimating) return;
+
+        const swipeThreshold = 80;
+        const isRTL = state.currentLang === 'ar';
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+
+        // Only handle horizontal swipes (not vertical scrolling)
+        if (Math.abs(diffX) < swipeThreshold || Math.abs(diffY) > Math.abs(diffX)) {
+            return;
+        }
+
+        // Get all categories including 'all'
+        const categories = ['all', ...getCategoriesByRestaurant(state.currentRestaurant).map(c => c.id)];
+        const currentIndex = categories.indexOf(state.currentCategory);
+
+        let newIndex;
+        let direction;
+
+        // Determine swipe direction (account for RTL)
+        const swipeLeft = isRTL ? diffX > swipeThreshold : diffX < -swipeThreshold;
+        const swipeRight = isRTL ? diffX < -swipeThreshold : diffX > swipeThreshold;
+
+        if (swipeLeft) {
+            // Next category
+            newIndex = currentIndex + 1;
+            if (newIndex >= categories.length) {
+                newIndex = 0; // Loop back to first
+            }
+            direction = 'left';
+        } else if (swipeRight) {
+            // Previous category
+            newIndex = currentIndex - 1;
+            if (newIndex < 0) {
+                newIndex = categories.length - 1; // Loop to last
+            }
+            direction = 'right';
+        } else {
+            return;
+        }
+
+        // Animate the transition
+        switchCategoryWithAnimation(categories[newIndex], direction);
+    }
+
+    function switchCategoryWithAnimation(newCategory, direction) {
+        isAnimating = true;
+        const menuGrid = document.getElementById('menu-grid');
+
+        // Slide out current content
+        menuGrid.classList.add(`slide-out-${direction}`);
+
+        setTimeout(() => {
+            // Update category and render new items
+            state.currentCategory = newCategory;
+            renderCategories();
+            renderMenuItems();
+
+            // Scroll menu content to top instantly
+            if (menuContent) {
+                menuContent.scrollTo({ top: 0, behavior: 'instant' });
+            }
+
+            // Remove slide-out, add slide-in
+            menuGrid.classList.remove(`slide-out-${direction}`);
+            menuGrid.classList.add(`slide-in-${direction}`);
+
+            // Scroll category tab into view
+            const activeTab = document.querySelector('.category-tab.active');
+            if (activeTab) {
+                activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+
+            // Clean up animation classes
+            setTimeout(() => {
+                menuGrid.classList.remove(`slide-in-${direction}`);
+                isAnimating = false;
+            }, 300);
+        }, 250);
+    }
+
+    // General swipe for back navigation (from screen edges)
     document.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
-    });
+    }, { passive: true });
 
     document.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
+        handleBackSwipe();
+    }, { passive: true });
 
-    function handleSwipe() {
+    function handleBackSwipe() {
         const swipeThreshold = 100;
         const isRTL = state.currentLang === 'ar';
         const diff = touchEndX - touchStartX;

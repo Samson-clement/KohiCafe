@@ -554,6 +554,7 @@ img {
 .menu-content {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     padding: var(--spacing-md);
     padding-bottom: 120px;
@@ -563,6 +564,48 @@ img {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Category slide transitions */
+.menu-grid.slide-out-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.menu-grid.slide-out-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.menu-grid.slide-in-left {
+    animation: slideInFromRight 0.3s ease forwards;
+}
+
+.menu-grid.slide-in-right {
+    animation: slideInFromLeft 0.3s ease forwards;
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 @media (min-width: 600px) {
