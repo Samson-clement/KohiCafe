@@ -265,6 +265,7 @@ img {
     font-weight: 600;
     color: var(--kohi-brown-dark);
     margin: 0;
+    padding-right: 0.1em;
     clip-path: inset(0 100% 0 0);
     animation: typeWrite 1.2s ease-out forwards;
 }

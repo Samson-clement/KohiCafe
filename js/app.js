@@ -4,6 +4,13 @@
  */
 
 // ==========================================
+// CART TIMEOUT CONFIGURATION
+// ==========================================
+
+const CART_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
+const ACTIVITY_CHECK_INTERVAL_MS = 60 * 1000; // Check every 1 minute
+
+// ==========================================
 // STATE MANAGEMENT
 // ==========================================
 
@@ -83,6 +90,9 @@ function init() {
 
     // Preload menu content in background
     preloadMenu();
+
+    // Start monitoring for cart expiry
+    startActivityMonitor();
 }
 
 function preloadMenu() {
@@ -178,6 +188,12 @@ function loadState() {
         state.currentLang = savedLang;
     }
 
+    // Check if cart has expired before loading
+    if (checkCartExpiry()) {
+        state.cart = [];
+        return;
+    }
+
     // Load cart
     const savedCart = localStorage.getItem('kohi_cart');
     if (savedCart) {
@@ -192,6 +208,42 @@ function loadState() {
 function saveState() {
     localStorage.setItem('kohi_language', state.currentLang);
     localStorage.setItem('kohi_cart', JSON.stringify(state.cart));
+}
+
+// ==========================================
+// CART ACTIVITY & EXPIRY
+// ==========================================
+
+function updateActivity() {
+    localStorage.setItem('kohi_last_activity', Date.now().toString());
+}
+
+function checkCartExpiry() {
+    const lastActivity = localStorage.getItem('kohi_last_activity');
+    if (lastActivity && Date.now() - parseInt(lastActivity) > CART_TIMEOUT_MS) {
+        // Cart has expired
+        state.cart = [];
+        localStorage.removeItem('kohi_cart');
+        localStorage.removeItem('kohi_last_activity');
+        console.log('Cart cleared due to inactivity');
+        return true;
+    }
+    return false;
+}
+
+function startActivityMonitor() {
+    // Check periodically while page is open
+    setInterval(() => {
+        if (state.cart.length > 0 && checkCartExpiry()) {
+            updateCartUI();
+            // If on cart screen, re-render
+            if (elements.cartScreen.classList.contains('active')) {
+                renderCartItems();
+            }
+            // Update menu item UIs
+            renderMenuItems();
+        }
+    }, ACTIVITY_CHECK_INTERVAL_MS);
 }
 
 // ==========================================
@@ -488,6 +540,7 @@ function addToCart(item) {
         });
     }
 
+    updateActivity();
     saveState();
     updateCartUI();
     updateMenuItemUI(item.id); // Only update the specific item, not all
@@ -525,6 +578,7 @@ function updateCartQuantity(itemId, delta) {
             state.cart = state.cart.filter(ci => ci.id !== itemId);
         }
 
+        updateActivity();
         saveState();
         updateCartUI();
         updateMenuItemUI(itemId); // Only update the specific item, not all
@@ -537,6 +591,7 @@ function updateCartQuantity(itemId, delta) {
 
 function removeFromCart(itemId) {
     state.cart = state.cart.filter(ci => ci.id !== itemId);
+    updateActivity();
     saveState();
     updateCartUI();
     updateMenuItemUI(itemId); // Only update the specific item
