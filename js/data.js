@@ -94,7 +94,7 @@ const menuData = {
             price: 2.250,
             category: 'best_sellers',
             restaurant: 'kohi',
-            image: 'images/matcha.png'
+            image: 'images/matcha.webp'
         },
         {
             id: 'boba_japanese_pancake_best',
@@ -105,7 +105,7 @@ const menuData = {
             price: 2.500,
             category: 'best_sellers',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
         {
             id: 'lotus_cheesecake_best',
@@ -116,7 +116,7 @@ const menuData = {
             price: 2.000,
             category: 'best_sellers',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
         {
             id: 'strawberry_mojito_best',
@@ -127,7 +127,7 @@ const menuData = {
             price: 1.750,
             category: 'best_sellers',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
         {
             id: 'chocolate_japanese_pancake_best',
@@ -138,7 +138,7 @@ const menuData = {
             price: 2.500,
             category: 'best_sellers',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
         {
             id: 'japanese_pancake_best',
@@ -149,7 +149,7 @@ const menuData = {
             price: 2.250,
             category: 'best_sellers',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
 
         // ==========================================
@@ -164,7 +164,7 @@ const menuData = {
             price: 2.000,
             category: 'boba_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'brown_sugar_boba',
@@ -175,7 +175,7 @@ const menuData = {
             price: 2.000,
             category: 'boba_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'espresso_boba',
@@ -186,7 +186,7 @@ const menuData = {
             price: 2.250,
             category: 'boba_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
 
         // ==========================================
@@ -201,7 +201,7 @@ const menuData = {
             price: 0.500,
             category: 'desserts',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
         {
             id: 'pistachio_matcha_pancake',
@@ -212,7 +212,7 @@ const menuData = {
             price: 2.500,
             category: 'desserts',
             restaurant: 'kohi',
-            image: 'images/matcha.png'
+            image: 'images/matcha.webp'
         },
         {
             id: 'kinder_cookies',
@@ -223,7 +223,7 @@ const menuData = {
             price: 1.000,
             category: 'desserts',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
         {
             id: 'japanese_cheesecake',
@@ -234,7 +234,7 @@ const menuData = {
             price: 2.000,
             category: 'desserts',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
         {
             id: 'brownie',
@@ -245,7 +245,7 @@ const menuData = {
             price: 0.400,
             category: 'desserts',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
         {
             id: 'protein_balls',
@@ -256,7 +256,7 @@ const menuData = {
             price: 1.000,
             category: 'desserts',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
 
         // ==========================================
@@ -271,7 +271,7 @@ const menuData = {
             price: 2.000,
             category: 'sandwiches',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
 
         // ==========================================
@@ -286,7 +286,7 @@ const menuData = {
             price: 2.000,
             category: 'iced_drinks',
             restaurant: 'kohi',
-            image: 'images/spanish-latte.png'
+            image: 'images/spanish-latte.webp'
         },
         {
             id: 'iced_kohi_latte',
@@ -297,7 +297,7 @@ const menuData = {
             price: 2.500,
             category: 'iced_drinks',
             restaurant: 'kohi',
-            image: 'images/latte.png'
+            image: 'images/latte.webp'
         },
         {
             id: 'iced_americano',
@@ -308,7 +308,7 @@ const menuData = {
             price: 1.500,
             category: 'iced_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'iced_latte',
@@ -319,7 +319,7 @@ const menuData = {
             price: 1.750,
             category: 'iced_drinks',
             restaurant: 'kohi',
-            image: 'images/latte.png'
+            image: 'images/latte.webp'
         },
         {
             id: 'iced_matcha_latte',
@@ -330,7 +330,7 @@ const menuData = {
             price: 2.000,
             category: 'iced_drinks',
             restaurant: 'kohi',
-            image: 'images/matcha.png'
+            image: 'images/matcha.webp'
         },
         {
             id: 'vanilla_ice_shaken',
@@ -341,7 +341,7 @@ const menuData = {
             price: 2.000,
             category: 'iced_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'caramel_ice_shaken',
@@ -352,7 +352,7 @@ const menuData = {
             price: 2.000,
             category: 'iced_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'iced_white_mocha',
@@ -363,7 +363,7 @@ const menuData = {
             price: 2.000,
             category: 'iced_drinks',
             restaurant: 'kohi',
-            image: 'images/latte.png'
+            image: 'images/latte.webp'
         },
         {
             id: 'iced_mocha',
@@ -374,7 +374,7 @@ const menuData = {
             price: 2.000,
             category: 'iced_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'iced_salted_caramel',
@@ -385,7 +385,7 @@ const menuData = {
             price: 2.000,
             category: 'iced_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'iced_chocolate',
@@ -396,7 +396,7 @@ const menuData = {
             price: 1.500,
             category: 'iced_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
 
         // ==========================================
@@ -411,7 +411,7 @@ const menuData = {
             price: 1.250,
             category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'americano',
@@ -422,7 +422,7 @@ const menuData = {
             price: 1.500,
             category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'spanish_latte',
@@ -433,7 +433,7 @@ const menuData = {
             price: 2.000,
             category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/spanish-latte.png'
+            image: 'images/spanish-latte.webp'
         },
         {
             id: 'matcha_latte',
@@ -444,7 +444,7 @@ const menuData = {
             price: 2.000,
             category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/matcha.png'
+            image: 'images/matcha.webp'
         },
         {
             id: 'latte',
@@ -455,7 +455,7 @@ const menuData = {
             price: 1.750,
             category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/latte.png'
+            image: 'images/latte.webp'
         },
         {
             id: 'flatwhite',
@@ -466,7 +466,7 @@ const menuData = {
             price: 1.750,
             category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/latte.png'
+            image: 'images/latte.webp'
         },
         {
             id: 'cortado',
@@ -477,7 +477,7 @@ const menuData = {
             price: 1.500,
             category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'cappuccino',
@@ -488,7 +488,7 @@ const menuData = {
             price: 1.750,
             category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'macchiato',
@@ -499,7 +499,7 @@ const menuData = {
             price: 1.500,
             category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'mocha',
@@ -510,7 +510,7 @@ const menuData = {
             price: 2.000,
             category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'white_mocha',
@@ -521,7 +521,7 @@ const menuData = {
             price: 2.000,
             category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/latte.png'
+            image: 'images/latte.webp'
         },
         {
             id: 'hot_chocolate',
@@ -532,7 +532,7 @@ const menuData = {
             price: 1.500,
             category: 'hot_drinks',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
 
         // ==========================================
@@ -547,7 +547,7 @@ const menuData = {
             price: 2.000,
             category: 'brewed_coffee',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'iced_v60',
@@ -558,7 +558,7 @@ const menuData = {
             price: 2.000,
             category: 'brewed_coffee',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
         {
             id: 'v60',
@@ -569,7 +569,7 @@ const menuData = {
             price: 2.000,
             category: 'brewed_coffee',
             restaurant: 'kohi',
-            image: 'images/Cortado.png'
+            image: 'images/Cortado.webp'
         },
 
         // ==========================================
@@ -584,7 +584,7 @@ const menuData = {
             price: 1.750,
             category: 'mojito_iced_tea',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
         {
             id: 'mixed_berries_mojito',
@@ -595,7 +595,7 @@ const menuData = {
             price: 2.000,
             category: 'mojito_iced_tea',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
         {
             id: 'lime_mojito',
@@ -606,7 +606,7 @@ const menuData = {
             price: 1.750,
             category: 'mojito_iced_tea',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
         {
             id: 'passion_fruit_mojito',
@@ -617,7 +617,7 @@ const menuData = {
             price: 1.750,
             category: 'mojito_iced_tea',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
         {
             id: 'peach_mojito',
@@ -628,7 +628,7 @@ const menuData = {
             price: 1.750,
             category: 'mojito_iced_tea',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         },
 
         // ==========================================
@@ -643,7 +643,7 @@ const menuData = {
             price: 0.450,
             category: 'water',
             restaurant: 'kohi',
-            image: 'images/placeholder.png'
+            image: 'images/placeholder.webp'
         }
     ]
 };

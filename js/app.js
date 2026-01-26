@@ -111,7 +111,7 @@ function preloadWelcomeImages() {
             resolve();
         };
         welcomeBg.onerror = () => resolve();
-        welcomeBg.src = 'images/kohiBG.jpg';
+        welcomeBg.src = 'images/kohiBG.webp';
     });
 }
 
@@ -125,8 +125,8 @@ function preloadPriorityImages() {
     const otherImages = new Set();
 
     // Menu background is high priority
-    priorityImages.add('images/kohibg2.jpg');
-    priorityImages.add('images/placeholder.png');
+    priorityImages.add('images/kohibg2.webp');
+    priorityImages.add('images/placeholder.webp');
 
     // Sort items by category priority
     allItems.forEach(item => {
@@ -416,14 +416,14 @@ function createMenuItemHTML(item) {
     const quantity = cartItem ? cartItem.quantity : 0;
 
     // Use placeholder as default, lazy load actual image
-    const imageSrc = item.image || 'images/placeholder.png';
+    const imageSrc = item.image || 'images/placeholder.webp';
 
     return `
         <div class="menu-item" data-item-id="${item.id}">
             <div class="item-image-container">
                 <img src="${imageSrc}" alt="${name}" class="item-image loading" loading="lazy" decoding="async"
                      onload="this.classList.remove('loading'); this.classList.add('loaded');"
-                     onerror="this.onerror=null; this.classList.remove('loading'); this.src='images/placeholder.png';">
+                     onerror="this.onerror=null; this.classList.remove('loading'); this.src='images/placeholder.webp';">
                 <div class="item-price-badge">${price}</div>
             </div>
             <div class="item-details">
@@ -454,12 +454,12 @@ function openItemModal(item) {
     const description = state.currentLang === 'ar' ? item.descriptionAr : item.description;
     const price = formatPrice(item.price, state.currentLang);
 
-    const imageSrc = item.image || 'images/placeholder.png';
+    const imageSrc = item.image || 'images/placeholder.webp';
 
     elements.modalImage.src = imageSrc;
     elements.modalImage.alt = name;
     elements.modalImage.loading = 'eager';
-    elements.modalImage.onerror = function() { this.onerror=null; this.src = 'images/placeholder.png'; };
+    elements.modalImage.onerror = function() { this.onerror=null; this.src = 'images/placeholder.webp'; };
     elements.modalPrice.textContent = price;
     elements.modalTitle.textContent = name;
     elements.modalDescription.textContent = description;
@@ -622,12 +622,12 @@ function renderCartItems() {
         const restaurantName = state.currentLang === 'ar' ? restaurant.nameAr : restaurant.name;
         const itemTotal = item.price * cartItem.quantity;
 
-        const imageSrc = item.image || 'images/placeholder.png';
+        const imageSrc = item.image || 'images/placeholder.webp';
 
         return `
             <div class="cart-item" data-item-id="${item.id}">
                 <img src="${imageSrc}" alt="${name}" class="cart-item-image" loading="lazy"
-                     onerror="this.onerror=null; this.src='images/placeholder.png';">
+                     onerror="this.onerror=null; this.src='images/placeholder.webp';">
                 <div class="cart-item-info">
                     <div>
                         <h3 class="cart-item-name">${name}</h3>

@@ -146,7 +146,7 @@ img {
     position: absolute;
     inset: 0;
     background-color: var(--bg-main);
-    background-image: url('../images/kohiBG.jpg');
+    background-image: url('../images/kohiBG.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -387,7 +387,7 @@ img {
     position: absolute;
     inset: 0;
     background-color: var(--bg-main);
-    background-image: url('../images/kohibg2.jpg');
+    background-image: url('../images/kohibg2.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -875,7 +875,7 @@ img {
     position: absolute;
     inset: 0;
     background-color: var(--bg-main);
-    background-image: url('../images/kohibg2.jpg');
+    background-image: url('../images/kohibg2.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
