@@ -61,57 +61,57 @@ const translations = {
 
     ar: {
         // Welcome Screen
-        welcome: "أهلاً وسهلاً",
-        tap_to_view: "انقر لعرض القائمة",
+        welcome: "هلا وغلا",
+        tap_to_view: "اضغط عشان تشوف القائمة",
         kohi: "كوهي",
 
         // Menu Screen
         menu: "القائمة",
         all: "الكل",
-        categories: "الفئات",
+        categories: "الأقسام",
 
         // Categories - Kohi
-        best_sellers: "الأكثر مبيعاً",
+        best_sellers: "الأكثر طلباً",
         boba_drinks: "مشروبات البوبا",
         desserts: "الحلويات",
         sandwiches: "السندويشات",
-        iced_drinks: "المشروبات المثلجة",
-        hot_drinks: "المشروبات الساخنة",
+        iced_drinks: "المشروبات الباردة",
+        hot_drinks: "المشروبات الحارة",
         brewed_coffee: "القهوة المخمرة",
-        mojito_iced_tea: "موهيتو وشاي مثلج",
-        water: "مياه",
+        mojito_iced_tea: "موهيتو وشاي بارد",
+        water: "ماي",
 
         // Cart & Order
         cart: "السلة",
-        add_to_order: "أضف للطلب",
-        added_to_order: "تمت الإضافة للطلب",
+        add_to_order: "ضيفه للطلب",
+        added_to_order: "انضاف للطلب",
         quantity: "الكمية",
         total: "المجموع",
-        checkout: "إتمام الطلب",
+        checkout: "إكمال الطلب",
         back: "رجوع",
-        view_order: "عرض الطلب",
+        view_order: "شوف الطلب",
         your_order: "طلبك",
-        clear: "مسح",
-        item: "عنصر",
-        items: "عناصر",
-        confirm_order: "تأكيد الطلب",
-        clear_cart: "مسح السلة",
-        empty_cart: "سلتك فارغة",
-        order_total: "إجمالي الطلب",
+        clear: "امسح",
+        item: "صنف",
+        items: "أصناف",
+        confirm_order: "أكد الطلب",
+        clear_cart: "امسح السلة",
+        empty_cart: "السلة فاضية",
+        order_total: "المجموع الكلي",
 
         // Checkout
-        thank_you: "شكراً لك!",
-        order_confirmed: "تم تأكيد الطلب",
-        checkout_message: "تم استلام طلبك",
-        checkout_instruction: "يرجى إبلاغ النادل",
-        show_barista: "يرجى مناداة الباريستا وإظهار هذا الطلب",
-        no_payment_note: "لا يلزم الدفع - فقط لتأكيد طلبك",
+        thank_you: "يعطيك العافية!",
+        order_confirmed: "تم تأكيد طلبك",
+        checkout_message: "استلمنا طلبك",
+        checkout_instruction: "خبّر الباريستا",
+        show_barista: "نادي الباريستا وعرض عليه الطلب",
+        no_payment_note: "بدون دفع - بس لتأكيد طلبك",
 
         // Clear order
-        clear_order_title: "مسح الطلب؟",
-        clear_order_message: "هل أنت متأكد من مسح جميع العناصر من طلبك؟",
-        cancel: "إلغاء",
-        yes_clear: "نعم، مسح"
+        clear_order_title: "تمسح الطلب؟",
+        clear_order_message: "متأكد تبي تمسح كل الأصناف من طلبك؟",
+        cancel: "لا",
+        yes_clear: "إي، امسح"
     }
 };
 

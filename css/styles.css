@@ -293,6 +293,26 @@ img {
     }
 }
 
+/* RTL animation - reveals from right to left for Arabic */
+@keyframes typeWriteRTL {
+    0% {
+        clip-path: inset(0 0 0 100%);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Arabic welcome text animation - right to left */
+[dir="rtl"] .welcome-text {
+    clip-path: inset(0 0 0 100%);
+    animation: typeWriteRTL 1.2s ease-out forwards;
+}
+
+[dir="rtl"] .welcome-text.animate.play {
+    animation: typeWriteRTL 1.2s ease-out forwards;
+}
+
 .welcome-cta {
     display: flex;
     align-items: center;
