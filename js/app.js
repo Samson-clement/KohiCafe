@@ -112,22 +112,9 @@ function preloadMenu() {
     });
 }
 
-function preloadWelcomeImages() {
-    return new Promise((resolve) => {
-        const welcomeBg = new Image();
-        welcomeBg.fetchPriority = 'high';
-        welcomeBg.onload = () => {
-            console.log('Welcome background loaded');
-            resolve();
-        };
-        welcomeBg.onerror = () => resolve();
-        welcomeBg.src = 'images/kohiBG.webp';
-    });
-}
-
 function preloadPriorityImages() {
-    // Priority order: menu background, then best sellers, boba drinks, then rest
-    const priorityCategories = ['best_sellers', 'boba_drinks'];
+    // Priority order: menu background, then best sellers, hot coffee, iced coffee
+    const priorityCategories = ['best_sellers', 'hot_coffee', 'iced_coffee'];
     const allItems = getItemsByRestaurant('kohi');
 
     // Get unique images by priority
@@ -153,9 +140,22 @@ function preloadPriorityImages() {
     const priorityPromises = Array.from(priorityImages).map(src => loadImage(src, 'high'));
 
     Promise.all(priorityPromises).then(() => {
-        console.log('Priority images loaded (Best Sellers & Boba)');
+        console.log('Priority images loaded');
         // Then load the rest with lower priority
         Array.from(otherImages).forEach(src => loadImage(src, 'low'));
+    });
+}
+
+function preloadWelcomeImages() {
+    return new Promise((resolve) => {
+        const welcomeBg = new Image();
+        welcomeBg.fetchPriority = 'high';
+        welcomeBg.onload = () => {
+            console.log('Welcome background loaded');
+            resolve();
+        };
+        welcomeBg.onerror = () => resolve();
+        welcomeBg.src = 'images/kohiBG.webp';
     });
 }
 
@@ -906,19 +906,23 @@ function setupEventListeners() {
             renderCategories();
             renderMenuItems();
 
-            // Scroll menu content to top instantly
+            // Scroll menu content to top instantly (use scrollTop for iOS compatibility)
             if (menuContent) {
-                menuContent.scrollTo({ top: 0, behavior: 'instant' });
+                menuContent.scrollTop = 0;
             }
 
             // Remove slide-out, add slide-in
             menuGrid.classList.remove(`slide-out-${direction}`);
             menuGrid.classList.add(`slide-in-${direction}`);
 
-            // Scroll category tab into view
+            // Scroll category tab into view without animation to prevent iOS glitch
             const activeTab = document.querySelector('.category-tab.active');
             if (activeTab) {
-                activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                const tabsContainer = document.getElementById('category-tabs');
+                const tabRect = activeTab.getBoundingClientRect();
+                const containerRect = tabsContainer.getBoundingClientRect();
+                const scrollLeft = tabsContainer.scrollLeft + (tabRect.left - containerRect.left) - (containerRect.width / 2) + (tabRect.width / 2);
+                tabsContainer.scrollLeft = scrollLeft;
             }
 
             // Clean up animation classes
