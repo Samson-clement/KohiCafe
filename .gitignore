@@ -1,0 +1,12 @@
+# Source image folders (not needed for production)
+images/Kohi Menu Final/
+images/backup/
+
+# OS files
+.DS_Store
+*.DS_Store
+
+# Editor files
+.vscode/
+*.swp
+*.swo
