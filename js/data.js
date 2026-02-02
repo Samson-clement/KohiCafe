@@ -570,7 +570,7 @@ const menuData = {
             nameAr: 'شاي مثلج بالتوت المشكل',
             description: 'Refreshing iced tea with mixed berries',
             descriptionAr: 'شاي مثلج منعش بالتوت المشكل',
-            price: 1.750,
+            price: 2.000,
             category: 'mojitos_iced_tea',
             restaurant: 'kohi',
             image: 'images/mixed_berries_iced_tea.webp'
@@ -651,7 +651,7 @@ const menuData = {
             nameAr: 'براوني',
             description: 'Rich chocolate brownie bite',
             descriptionAr: 'قطعة براوني شوكولاتة غنية',
-            price: 0.400,
+            price: 0.500,
             category: 'desserts',
             restaurant: 'kohi',
             image: 'images/brownie_bite.webp'
@@ -673,7 +673,7 @@ const menuData = {
             nameAr: 'قطع البيكان',
             description: 'Delicious pecan bites',
             descriptionAr: 'قطع البيكان اللذيذة',
-            price: 0.500,
+            price: 0.750,
             category: 'desserts',
             restaurant: 'kohi',
             image: 'images/pecan_bites.webp'
@@ -684,7 +684,7 @@ const menuData = {
             nameAr: 'كيكة التمر والبيكان',
             description: 'Moist cake with dates and pecans',
             descriptionAr: 'كيكة رطبة بالتمر والبيكان',
-            price: 1.500,
+            price: 2.000,
             category: 'desserts',
             restaurant: 'kohi',
             image: 'images/dates_pecan_cake.webp'
@@ -695,7 +695,7 @@ const menuData = {
             nameAr: 'كيكة دولتشي',
             description: 'Sweet and creamy dolce cake',
             descriptionAr: 'كيكة دولتشي حلوة وكريمية',
-            price: 1.500,
+            price: 2.000,
             category: 'desserts',
             restaurant: 'kohi',
             image: 'images/dolce_cake.webp'
@@ -706,7 +706,7 @@ const menuData = {
             nameAr: 'كيكة مدريد',
             description: 'Spanish-inspired layered cake',
             descriptionAr: 'كيكة طبقات على الطريقة الإسبانية',
-            price: 1.500,
+            price: 2.250,
             category: 'desserts',
             restaurant: 'kohi',
             image: 'images/madrid_cake.webp'
@@ -717,7 +717,7 @@ const menuData = {
             nameAr: 'كيكة المانجو وجوز الهند',
             description: 'Tropical cake with mango and coconut',
             descriptionAr: 'كيكة استوائية بالمانجو وجوز الهند',
-            price: 1.500,
+            price: 2.250,
             category: 'desserts',
             restaurant: 'kohi',
             image: 'images/mango_coconut_cake.webp'
@@ -728,7 +728,7 @@ const menuData = {
             nameAr: 'كيكة ريد فيلفت بجوز الهند',
             description: 'Red velvet cake with coconut topping',
             descriptionAr: 'كيكة ريد فيلفت مع جوز الهند',
-            price: 1.500,
+            price: 2.250,
             category: 'desserts',
             restaurant: 'kohi',
             image: 'images/red_velvet_coconut_cake.webp'
