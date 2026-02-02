@@ -824,6 +824,17 @@ const menuData = {
             category: 'sandwiches',
             restaurant: 'kohi',
             image: 'images/halloumi_sandwich.webp'
+        },
+        {
+            id: 'turkey_sandwich',
+            name: 'Turkey Sandwich',
+            nameAr: 'سندويش ديك رومي',
+            description: 'Delicious turkey sandwich',
+            descriptionAr: 'سندويش ديك رومي لذيذ',
+            price: 2.000,
+            category: 'sandwiches',
+            restaurant: 'kohi',
+            image: 'images/turkey_sandwich.webp'
         }
     ]
 };
