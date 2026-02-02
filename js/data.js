@@ -733,6 +733,39 @@ const menuData = {
             restaurant: 'kohi',
             image: 'images/red_velvet_coconut_cake.webp'
         },
+        {
+            id: 'kinder_cookies',
+            name: 'Kinder Cookies',
+            nameAr: 'كوكيز كيندر',
+            description: 'Delicious Kinder chocolate cookies',
+            descriptionAr: 'كوكيز كيندر بالشوكولاتة اللذيذة',
+            price: 1.000,
+            category: 'desserts',
+            restaurant: 'kohi',
+            image: 'images/kindercookies.webp'
+        },
+        {
+            id: 'japanese_cheesecake',
+            name: 'Japanese Cheesecake',
+            nameAr: 'تشيز كيك ياباني',
+            description: 'Light and fluffy Japanese-style cheesecake',
+            descriptionAr: 'تشيز كيك ياباني خفيف وهش',
+            price: 2.000,
+            category: 'desserts',
+            restaurant: 'kohi',
+            image: 'images/japanese_cheesecake.webp'
+        },
+        {
+            id: 'protein_balls',
+            name: 'Protein Balls',
+            nameAr: 'كرات البروتين',
+            description: 'Healthy and nutritious protein balls',
+            descriptionAr: 'كرات بروتين صحية ومغذية',
+            price: 1.000,
+            category: 'desserts',
+            restaurant: 'kohi',
+            image: 'images/protein_balls.webp'
+        },
 
         // ==========================================
         // SANDWICHES
