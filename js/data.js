@@ -65,70 +65,114 @@ const menuData = {
         // BEST SELLERS
         // ==========================================
         {
-            id: 'matcha_boba_best',
-            name: 'Matcha Boba',
-            nameAr: 'ماتشا بوبا',
-            description: 'Black Tapioca, Matcha, Sweetened Milk And Cream',
-            descriptionAr: 'تابيوكا سوداء، ماتشا، حليب محلى وكريمة',
-            price: 2.250,
-            category: 'best_sellers',
-            restaurant: 'kohi',
-            image: 'images/matcha_boba.webp'
-        },
-        {
-            id: 'spanish_latte_best',
-            name: 'Spanish Latte',
-            nameAr: 'سبانش لاتيه',
-            description: 'Sweetened milk and espresso shot',
-            descriptionAr: 'حليب محلى وشوت إسبريسو',
-            price: 2.000,
-            category: 'best_sellers',
-            restaurant: 'kohi',
-            image: 'images/spanish_latte_iced.webp'
-        },
-        {
             id: 'chocolate_pancake_best',
             name: 'Chocolate Japanese Pancake',
             nameAr: 'بان كيك ياباني بالشوكولاتة',
-            description: 'Fluffy Japanese pancake topped with chocolate and berries',
-            descriptionAr: 'بان كيك ياباني هش مع شوكولاتة وتوت',
+            description: 'Fluffy Japanese pancake topped with Belgian chocolate',
+            descriptionAr: 'بان كيك ياباني هش مع شوكولاتة بلجيكية',
             price: 2.500,
             category: 'best_sellers',
             restaurant: 'kohi',
             image: 'images/chocolate_japanese_pancake.webp'
         },
         {
-            id: 'strawberry_mojito_best',
-            name: 'Strawberry Mojito',
-            nameAr: 'موهيتو فراولة',
-            description: 'Strawberry Syrup, Lemon, Mint And Sprite',
-            descriptionAr: 'شراب الفراولة، ليمون، نعناع وسبرايت',
-            price: 1.750,
+            id: 'classic_pancake_best',
+            name: 'Classic Pancake',
+            nameAr: 'بان كيك كلاسيك',
+            description: 'Fluffy Japanese souffle pancake with butter and maple syrup',
+            descriptionAr: 'بان كيك ياباني هش مع زبدة وشراب القيقب',
+            price: 2.250,
             category: 'best_sellers',
             restaurant: 'kohi',
-            image: 'images/strawberry_mojito.webp'
+            image: 'images/classic_pancake.webp'
         },
         {
-            id: 'iced_kohi_latte_best',
-            name: 'Iced Kohi Latte',
-            nameAr: 'كوهي لاتيه بارد',
-            description: 'Signature Kohi latte over ice',
-            descriptionAr: 'لاتيه كوهي المميز مع الثلج',
-            price: 2.500,
+            id: 'dolce_cake_best',
+            name: 'Dolce Cake',
+            nameAr: 'كيكة دولتشي',
+            description: 'Sweet and creamy dolce cake',
+            descriptionAr: 'كيكة دولتشي حلوة وكريمية',
+            price: 2.000,
             category: 'best_sellers',
             restaurant: 'kohi',
-            image: 'images/iced_kohi_latte.webp'
+            image: 'images/dolce_cake.webp'
         },
         {
-            id: 'pistachio_pancake_best',
-            name: 'Pistachio Pancake',
-            nameAr: 'بان كيك فستق',
-            description: 'Japanese souffle pancake with pistachio',
-            descriptionAr: 'بان كيك ياباني سوفليه مع الفستق',
-            price: 2.500,
+            id: 'madrid_cake_best',
+            name: 'Madrid Cake',
+            nameAr: 'كيكة مدريد',
+            description: 'Spanish-inspired layered cake',
+            descriptionAr: 'كيكة طبقات على الطريقة الإسبانية',
+            price: 2.250,
             category: 'best_sellers',
             restaurant: 'kohi',
-            image: 'images/pistachio_pancake.webp'
+            image: 'images/madrid_cake.webp'
+        },
+        {
+            id: 'dates_pecan_cake_best',
+            name: 'Dates Pecan Cake',
+            nameAr: 'كيكة التمر والبيكان',
+            description: 'Moist cake with dates and pecans',
+            descriptionAr: 'كيكة رطبة بالتمر والبيكان',
+            price: 2.000,
+            category: 'best_sellers',
+            restaurant: 'kohi',
+            image: 'images/dates_pecan_cake.webp'
+        },
+        {
+            id: 'kohi_bubble_tea_best',
+            name: 'Kohi Bubble Tea',
+            nameAr: 'كوهي بابل تي',
+            description: 'Black tapioca, caramel, milk tea and cream',
+            descriptionAr: 'تابيوكا سوداء، كراميل، شاي بحليب وكريمة',
+            price: 2.000,
+            category: 'best_sellers',
+            restaurant: 'kohi',
+            image: 'images/kohi_bubble_tea.webp'
+        },
+        {
+            id: 'v60_best',
+            name: 'V60',
+            nameAr: 'V60',
+            description: 'Japanese-style pour over coffee',
+            descriptionAr: 'قهوة مصبوبة على الطريقة اليابانية',
+            price: 2.000,
+            category: 'best_sellers',
+            restaurant: 'kohi',
+            image: 'images/v60.webp'
+        },
+        {
+            id: 'iced_matcha_latte_best',
+            name: 'Iced Matcha Latte',
+            nameAr: 'ماتشا لاتيه بارد',
+            description: 'Premium matcha with cold milk over ice',
+            descriptionAr: 'ماتشا فاخرة مع حليب بارد وثلج',
+            price: 2.000,
+            category: 'best_sellers',
+            restaurant: 'kohi',
+            image: 'images/iced_matcha_latte.webp'
+        },
+        {
+            id: 'strawberry_matcha_best',
+            name: 'Strawberry Matcha',
+            nameAr: 'ستروبري ماتشا',
+            description: 'Matcha with strawberry and milk',
+            descriptionAr: 'ماتشا مع الفراولة والحليب',
+            price: 2.000,
+            category: 'best_sellers',
+            restaurant: 'kohi',
+            image: 'images/strawberry_matcha.webp'
+        },
+        {
+            id: 'red_velvet_cake_best',
+            name: 'Red Velvet Coconut Cake',
+            nameAr: 'كيكة ريد فيلفت بجوز الهند',
+            description: 'Red velvet cake with coconut topping',
+            descriptionAr: 'كيكة ريد فيلفت مع جوز الهند',
+            price: 2.250,
+            category: 'best_sellers',
+            restaurant: 'kohi',
+            image: 'images/red_velvet_coconut_cake.webp'
         },
 
         // ==========================================
